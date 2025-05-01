@@ -8,19 +8,19 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
   </head>
   <body>
-    <div class="container d-flex col-xxl-8 px-4 py-5 justify-content-center">
+    <div class="container main-content px-4 py-5 justify-content-center">
       <% if (locals.data && locals.loc && locals.name) { %>
-        <div class="main-content align-items-center g-5 p-5 col-lg-6">
+        <div class="row align-items-center p-5">
           <h2 class="text-white main-text mb-3">The ISS is currently flying over <%= name %> at <%= Math.round(data.velocity) %> <%= data.units %>/hour</h2>
           <p class="lead text-white">Visibility: <%= data.visibility %></p>
           <p class="lead text-white">Current coordinates: <%= data.latitude.toFixed(2) %>, <%= data.longitude.toFixed(2) %></p>
           <p class="lead text-white">Current timezone: <%= loc.timezone_id %></p>
-          <div class="d-flex gap-4 1875rem buttons-container justify-content-md-start">
-            <form action="/" method="GET" class="pt-5">
-              <input type="submit" value="Refresh" class="btn main-button btn-lg px-4">
-            </form>
-            <a href='<%= loc.map_url %>' class="btn main-button btn-lg px-4">Map</a>
-          </div>
+        </div>
+        <div class="container buttons-container">
+          <form action="/" method="GET">
+            <input type="submit" value="Refresh" class="btn main-button btn-lg px-4">
+          </form>
+          <a href='<%= loc.map_url %>' class="btn main-button btn-lg px-4">Map</a>
         </div>
       <% } %>
     </div>
