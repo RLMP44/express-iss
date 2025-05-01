@@ -11,7 +11,7 @@
     <div class="container d-flex col-xxl-8 px-4 py-5 justify-content-center">
       <% if (locals.data && locals.loc && locals.name) { %>
         <div class="main-content align-items-center g-5 p-5 col-lg-6">
-          <h2 class="display-5 fw-bold text-white lh-1 mb-3">The ISS is currently flying over <%= name %> at <%= Math.round(data.velocity) %> <%= data.units %>/hour</h2>
+          <h2 class="text-white main-text mb-3">The ISS is currently flying over <%= name %> at <%= Math.round(data.velocity) %> <%= data.units %>/hour</h2>
           <p class="lead text-white">Visibility: <%= data.visibility %></p>
           <p class="lead text-white">Current coordinates: <%= data.latitude.toFixed(2) %>, <%= data.longitude.toFixed(2) %></p>
           <p class="lead text-white">Current timezone: <%= loc.timezone_id %></p>
