@@ -19,7 +19,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 function handleLocData(code) {
   const country = countryCodes.codes.find((c) => c.Code === code);
-  return (country && !country === "??") ? country.Name : "an unknown location";
+  return (country && country.Code !== "??") ? country.Name : "an unknown location";
 }
 
 app.get('/', async (req, res) => {
