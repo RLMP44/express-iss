@@ -9,16 +9,17 @@
   </head>
   <body>
     <div class="container d-flex col-xxl-8 px-4 py-5 justify-content-center">
-      <% if (locals.data && locals.loc) { %>
+      <% if (locals.data && locals.loc && locals.name) { %>
         <div class="main-content align-items-center g-5 p-5 col-lg-6">
-          <h2 class="display-5 fw-bold text-white lh-1 mb-3">The ISS is currently flying over <%= loc.country_code %> at <%= Math.round(data.velocity) %> <%= data.units %>/hour</h2>
+          <h2 class="display-5 fw-bold text-white lh-1 mb-3">The ISS is currently flying over <%= name %> at <%= Math.round(data.velocity) %> <%= data.units %>/hour</h2>
           <p class="lead text-white">Visibility: <%= data.visibility %></p>
           <p class="lead text-white">Current coordinates: <%= data.latitude.toFixed(2) %>, <%= data.longitude.toFixed(2) %></p>
           <p class="lead text-white">Current timezone: <%= loc.timezone_id %></p>
-          <div class="d-grid d-md-flex justify-content-md-start">
+          <div class="d-flex gap-4 1875rem buttons-container justify-content-md-start">
             <form action="/" method="GET" class="pt-5">
-              <input type="submit" value="Refresh" class="btn refresh-button btn-lg px-4">
+              <input type="submit" value="Refresh" class="btn main-button btn-lg px-4">
             </form>
+            <a href='<%= loc.map_url %>' class="btn main-button btn-lg px-4">Map</a>
           </div>
         </div>
       <% } %>

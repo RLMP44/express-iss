@@ -16,17 +16,30 @@ footer {
   backdrop-filter: blur(5px);
 }
 
-.refresh-button {
+.main-button {
   background-color: rgb(64,137,201) !important;
   box-shadow: inset 3px 3px 12px white;
+  width: 10rem !important;
 }
 
-.refresh-button:hover {
+.main-button:hover {
   box-shadow: inset 6px 6px 20px white;
+}
+
+.buttons-container {
+  justify-content: flex-start;
+  align-items: flex-end;
 }
 
 @media screen and (max-width: 1000px) {
   body {
     background-size: 200vw 100vh;
+  }
+}
+
+@media screen and (max-width: 496px) {
+  buttons-container {
+    align-items: flex-start !important;
+    flex-direction: column !important;
   }
 }
