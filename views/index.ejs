@@ -1,0 +1,13 @@
+<h1> hi</h1>
+<% if (locals.data) { %>
+  <h3><%= data.name %></h3>
+  <h3><%= data.latitude.toFixed(2) %>, <%= data.longitude.toFixed(2) %></h3>
+  <h3><%= Math.round(data.velocity) %> <%= data.units %>/hour</h3>
+  <h3><%= data.visibility %></h3>
+  <h3><%= data.name %></h3>
+<% } %>
+<% if (locals.loc) { %>
+  <h3><%= loc.timezone_id %></h3>
+  <h3><%= loc.country_code %></h3>
+  <h3><%= loc.map_url %></h3>
+<% } %>
