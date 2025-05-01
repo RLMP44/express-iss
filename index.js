@@ -1,11 +1,17 @@
 import express from "express";
 import axios from "axios";
+import path from 'path';
+import { dirname } from "path";
+import { fileURLToPath } from "url";
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
 
 const app = express();
 const port = 3000;
-
 var satelliteData = {};
 var locData = {};
+
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', async (req, res) => {
   try {
@@ -19,8 +25,6 @@ app.get('/', async (req, res) => {
   }
   res.render("index.ejs", { data: satelliteData, loc: locData });
 })
-
-https://api.wheretheiss.at/v1/coordinates/37.795517,-122.393693
 
 app.listen(port, () => {
   console.log('working');
