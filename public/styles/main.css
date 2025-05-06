@@ -1,7 +1,26 @@
-body {
+/* body {
   background-image: url('../images/horizon.jpg');
   background-size: 100% 100vh;
   background-repeat: no-repeat;
+} */
+
+canvas {
+  border: 1px solid black;
+  background: radial-gradient(
+    circle 130vw at 50% 175%,
+    rgba(1,30,44,1) 25%,
+    48%,
+    rgba(167,231,248,1) 50%,
+    51%,
+    rgba(1,30,44,1) 67%
+  );
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+}
+/* get rid of default margin */
+body {
+  margin: 0;
 }
 
 footer {
@@ -66,13 +85,50 @@ footer {
 }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
-@media only screen and (min-width: 600px) {
+@media only screen and (min-width: 200px) and (max-width: 600px) {
+  canvas {
+    border: 1px solid black;
+    background: radial-gradient(
+      circle 175vw at 50% 120%,
+      rgba(1,30,44,1) 25%,
+      48%,
+      rgba(167,231,248,1) 50%,
+      51%,
+      rgba(1,30,44,1) 67%
+    );
+  }
+
 }
 
 /* Medium devices (landscape tablets, 768px and up) */
-@media only screen and (min-width: 768px) {
-
+@media only screen and (min-width: 600px) and (max-width: 768px) {
+  canvas {
+    border: 1px solid black;
+    background: radial-gradient(
+      circle 160vw at 50% 140%,
+      rgba(1,30,44,1) 25%,
+      48%,
+      rgba(167,231,248,1) 50%,
+      51%,
+      rgba(1,30,44,1) 67%
+    );
+  }
 }
+
+@media only screen and (min-width: 768px) and (max-width: 992px) {
+  canvas {
+    border: 1px solid black;
+    background: radial-gradient(
+      circle 140vw at 50% 140%,
+      rgba(1,30,44,1) 25%,
+      48%,
+      rgba(167,231,248,1) 50%,
+      51%,
+      rgba(1,30,44,1) 67%
+    );
+  }
+}
+
 
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (min-width: 992px) {
