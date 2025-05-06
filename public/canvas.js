@@ -1,7 +1,11 @@
 var canvas = document.querySelector("canvas");
+var contentContainer = document.querySelector(".content");
 // get browser's width and height and set canvas
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
+console.log(contentContainer);
+canvas.width = contentContainer.clientWidth;
+canvas.height = contentContainer.clientHeight;
+// canvas.width = window.innerWidth;
+// canvas.height = window.innerHeight;
 
 // get context to access all functions
 var ctx = canvas.getContext("2d");

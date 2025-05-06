@@ -31,7 +31,7 @@ app.get('/', async (req, res) => {
     locData = locResponse.data;
   } catch (error) {
     console.error("Error fetching data:", error.message);
-    return res.status(500).json({ error: "Failed to fetch API data" });
+    return res.render("index.ejs", { data: satelliteData, loc: locData, name: countryName });
   }
   res.render("index.ejs", { data: satelliteData, loc: locData, name: countryName });
 })

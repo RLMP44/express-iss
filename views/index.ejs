@@ -8,25 +8,27 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
   </head>
   <body>
-    <canvas></canvas>
-
-    <div class="container main-content px-4 py-5 justify-content-center">
-      <% if (locals.data && locals.loc && locals.name) { %>
-        <div class="row align-items-center p-5">
-          <h2 class="text-white main-text mb-3">The ISS is currently flying over <%= name %> at <%= Math.round(data.velocity) %> <%= data.units %>/hour</h2>
-          <p class="lead text-white">Visibility: <%= data.visibility %></p>
-          <p class="lead text-white">Current coordinates: <%= data.latitude.toFixed(2) %>, <%= data.longitude.toFixed(2) %></p>
-          <p class="lead text-white">Current timezone: <%= loc.timezone_id %></p>
-        </div>
-        <div class="container buttons-container">
-          <form action="/" method="GET">
-            <input type="submit" value="Refresh" class="btn main-button btn-lg px-4">
-          </form>
-          <a href='<%= loc.map_url %>' class="btn main-button btn-lg px-4">Map</a>
-        </div>
-      <% } %>
+    <div class="content">
+      <canvas></canvas>
+      <%- include("header.ejs") %>
+      <div class="container main-content px-4 py-5 my-3 justify-content-center">
+        <% if (locals.data && locals.loc && locals.name) { %>
+          <div class="row align-items-center p-5">
+            <h2 class="text-white main-text mb-3">The ISS is currently flying over <%= name %> at <%= Math.round(data.velocity) %> <%= data.units %>/hour</h2>
+            <p class="lead text-white">Visibility: <%= data.visibility %></p>
+            <p class="lead text-white">Current coordinates: <%= data.latitude.toFixed(2) %>, <%= data.longitude.toFixed(2) %></p>
+            <p class="lead text-white">Current timezone: <%= loc.timezone_id %></p>
+          </div>
+          <div class="container buttons-container">
+            <form action="/" method="GET">
+              <input type="submit" value="Refresh" class="btn main-button btn-lg px-4">
+            </form>
+            <a href='<%= loc.map_url %>' class="btn main-button btn-lg px-4">Map</a>
+          </div>
+        <% } %>
+      </div>
+      <%- include("footer.ejs") %>
     </div>
-    <footer class="text-white">Background image by <a href="https://www.freepik.com/author/rawpixel-com">RawPixel</a> on Freepik</footer>
     <script src="/canvas.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
   </body>
