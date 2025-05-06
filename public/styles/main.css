@@ -33,6 +33,15 @@ footer {
   align-items: baseline;
 }
 
+.credit {
+  justify-content: flex-end !important;
+}
+
+.credit a {
+  text-decoration: none;
+  color: white;
+}
+
 .main-content {
   border-radius: 2rem;
   background-color: rgba(13, 26, 42, 0.325);
