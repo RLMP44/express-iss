@@ -1,0 +1,13 @@
+<div class="container main-content px-4 py-5 my-3 justify-content-center">
+  <% if (locals.data) { %>
+    <div class="row align-items-center p-5">
+      <h2 class="text-white main-text mb-3">There are currently <%= data.peopleNo %> astronauts on the ISS!</h2>
+    </div>
+    <div class="container buttons-container">
+      <form action="/" method="GET">
+        <input type="submit" value="Refresh" class="btn main-button btn-lg px-4">
+      </form>
+      <a href='<%#= loc.map_url %>' class="btn main-button btn-lg px-4">Map</a>
+    </div>
+  <% } %>
+</div>

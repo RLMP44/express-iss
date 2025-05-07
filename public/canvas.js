@@ -1,5 +1,5 @@
 var canvas = document.querySelector("canvas");
-var contentContainer = document.querySelector(".content");
+var contentContainer = document.querySelector(".body-container");
 // get browser's width and height and set canvas
 console.log(contentContainer);
 canvas.width = contentContainer.clientWidth;
