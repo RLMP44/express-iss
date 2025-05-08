@@ -5,6 +5,7 @@ import { dirname } from "path";
 import { fileURLToPath } from "url";
 import bodyParser from "body-parser";
 import countryCodes from "./country_codes.json" assert { type: "json" };
+import astronautsInSpace from "./astros.json" assert { type: "json" };
 import expressLayouts from "express-ejs-layouts";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -15,6 +16,7 @@ var satelliteData = {};
 var locData = {};
 var countryName = "";
 var astronautsData = {};
+var astronautBios = {};
 
 // Set EJS as the template engine
 app.set("view engine", "ejs");
@@ -32,13 +34,16 @@ function handleLocData(code) {
   return (country && country.Code !== "??") ? country.Name : "an ocean";
 }
 
-function getAstronautNames(astronauts) {
+function getISSAstronautData(astronauts) {
   const names = [];
   astronauts.forEach((astronaut) => {
     if (astronaut.craft === "ISS") {
       names.push(astronaut.name);
   }});
-  return names;
+  return {
+    peopleNo: names.length,
+    people: names
+  };
 }
 
 app.get('/', async (req, res) => {
@@ -57,16 +62,24 @@ app.get('/', async (req, res) => {
 
 app.get('/astronauts', async (req, res) => {
   try {
-    const response = await axios.get("http://api.open-notify.org/astros.json");
-    astronautsData = {
-      peopleNo: response.data.number,
-      people: getAstronautNames(response.data.people)
-    };
+    // const response = await axios.get("http://api.open-notify.org/astros.json");
+    // astronautsData = getISSAstronautData(response.data.people);
+    astronautsData = getISSAstronautData(astronautsInSpace.people);
+    // Run API requests for each astronaut in parallel
+    const astronautAPIEndpoint = 'https://ll.thespacedevs.com/2.3.0/astronauts';
+    const devAPIEndpoint = 'https://lldev.thespacedevs.com/2.3.0/astronauts'
+    astronautBios = await Promise.all(
+      astronautsData.people.map(async (person) => {
+        const peopleResponse = await axios.get(devAPIEndpoint + `/?search=${person}`);
+        return peopleResponse.data.results; // Extract data before returning
+      })
+    );
+    console.log(astronautBios[0]);
   } catch (error) {
     console.error("Error fetching data:", error.message);
-    return res.render("astronauts.ejs", { layout: "layout", data: astronautsData });
+    return res.render("astronauts.ejs", { layout: "layout", data: astronautsData, profiles: astronautBios });
   }
-  res.render("astronauts.ejs", { layout: "layout", data: astronautsData });
+  res.render("astronauts.ejs", { layout: "layout", data: astronautsData, profiles: astronautBios });
 })
 
 app.listen(port, () => {
