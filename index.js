@@ -74,12 +74,12 @@ app.get('/astronauts', async (req, res) => {
         return peopleResponse.data.results; // Extract data before returning
       })
     );
-    console.log(astronautBios[0]);
+    console.log(astronautBios);
   } catch (error) {
     console.error("Error fetching data:", error.message);
     return res.render("astronauts.ejs", { layout: "layout", data: astronautsData, profiles: astronautBios });
   }
-  res.render("astronauts.ejs", { layout: "layout", data: astronautsData, profiles: astronautBios });
+  res.render("astronauts.ejs", { layout: "layout", data: astronautsData, profiles: astronautBios[0] });
 })
 
 app.listen(port, () => {
