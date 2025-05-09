@@ -2,9 +2,6 @@
   min-height: 90vh;
   padding: 0rem;
   margin: 0rem;
-  overflow-y: scroll;
-  -webkit-overflow-scrolling: touch;
-  flex: auto;
 }
 
 .header-container, .footer-container {
@@ -28,6 +25,19 @@
   background-color: rgba(13, 26, 42, 0.325);
   backdrop-filter: blur(5px);
   width: 500px !important;
+  height: max-content;
   border: .3rem solid rgba(167, 231, 248, 1);
   box-shadow: 3px 3px 7px rgba(1, 30, 44, 1);
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+
+.carousel-container {
+  display: flex;
+  flex-direction: row;
+  height: max-content;
+  justify-content: center;
+  gap: 10px;
 }
