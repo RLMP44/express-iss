@@ -1,0 +1,11 @@
+.main-button {
+  background-color: rgba(167,231,248,1) !important;
+  box-shadow: inset 3px 3px 9px white, -1px -1px 4px white;
+  border: none !important;
+  width: 10rem !important;
+}
+
+.main-button:hover {
+  box-shadow: inset 3px 3px 9px white;
+  transition: .5s;
+}

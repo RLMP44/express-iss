@@ -1,0 +1,33 @@
+.body-container {
+  min-height: 90vh;
+  padding: 0rem;
+  margin: 0rem;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+  flex: auto;
+}
+
+.header-container, .footer-container {
+  background-color: rgba(167,231,248,1);
+  backdrop-filter: blur(5px);
+  width: 100%;
+  flex: none;
+}
+
+.buttons-container {
+  align-items: flex-end;
+  gap: 1.5rem;
+  display: flex !important;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 90% !important;
+}
+
+.main-content {
+  border-radius: 2rem;
+  background-color: rgba(13, 26, 42, 0.325);
+  backdrop-filter: blur(5px);
+  width: 500px !important;
+  border: .3rem solid rgba(167, 231, 248, 1);
+  box-shadow: 3px 3px 7px rgba(1, 30, 44, 1);
+}
