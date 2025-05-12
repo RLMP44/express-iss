@@ -31,7 +31,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 function handleLocData(code) {
   const country = countryCodes.codes.find((c) => c.Code === code);
-  return (country && country.Code !== "??") ? country.Name : "an ocean";
+  return (country && country.Code !== "??") ? country.Name : "the ocean";
 }
 
 function getISSAstronautData(astronauts) {

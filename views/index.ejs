@@ -4,6 +4,7 @@
       <h2 class="text-white main-text mb-3">The ISS is currently flying over <%= name %> at <%= Math.round(data.velocity) %> <%= data.units === "kilometers" ? "km" : "mi" %>/hr</h2>
       <p class="lead text-white">Visibility: <%= data.visibility %></p>
       <p class="lead text-white">Current coordinates: <%= data.latitude.toFixed(2) %>, <%= data.longitude.toFixed(2) %></p>
+      <p class="lead text-white">Current altitude: <%= data.altitude.toFixed(0) %> <%= data.units === "kilometers" ? "km" : "mi" %></p>
       <p class="lead text-white">Current timezone: <%= loc.timezone_id %></p>
     </div>
     <div class="container buttons-container">
