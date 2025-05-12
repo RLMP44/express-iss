@@ -8,8 +8,6 @@ canvas {
     51%,
     rgba(1,30,44,1) 67%
   );
-  /* position: inherit; */
-  /* top: 5%; */
   display: block;
   height: 100%;
   width: 100%;
