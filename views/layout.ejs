@@ -9,11 +9,14 @@
   </head>
   <body>
     <div class="content">
-
       <%- include("./partials/header.ejs") %>
       <div class="body-container">
-        <canvas></canvas>
-        <%- body %>
+        <div class="canvas-container">
+          <canvas></canvas>
+        </div>
+        <div class="main-content-container">
+          <%- body %>
+        </div>
       </div>
       <%- include("./partials/footer.ejs") %>
     </div>

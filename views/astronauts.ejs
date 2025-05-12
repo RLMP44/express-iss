@@ -1,25 +1,23 @@
-<!-- <div class="carousel-backdrop"> -->
-  <div class="carousel-container container">
-    <div class="main-content px-4 py-5 my-3">
-      <% if (locals.data) { %>
-          <img src="/images/astronaut.png" width="200" height="150" class="mb-3" style="border-radius: 1rem;">
-          <h2 class="text-white main-text mb-3">There are currently <%= data.peopleNo %> astronauts aboard the ISS!</h2>
-          <h2 class="text-white main-text mb-3">Scroll right to learn all about them!</h2>
-      <% } %>
-    </div>
-    <% if (locals.profiles) { %>
-      <% locals.profiles.forEach((person) => { %>
-        <div class="main-content px-4 py-5 my-3">
-          <img src="<%= person.image.image_url %>" width="200" height="200" class="mb-3" style="border-radius: 1rem; object-fit: cover; object-position: top">
-          <h2 class="text-white"><%= person.name %></h2>
-          <p class="text-white"><em><%= person.agency.name %></em></p>
-          <p class="text-white mb-0">Age: <%= person.age %></p>
-          <p class="text-white mb-0">Nationality: <%= person.nationality[0].name %></p>
-          <p class="text-white mb-0">No. of Flights: <%= person.flights_count %></p>
-          <p class="text-white">No. of spacewalks: <%= person.spacewalks_count %></p>
-          <p class="text-white"><%= person.bio %></p>
-        </div>
-      <% }) %>
+<div class="carousel-container container">
+  <div class="main-content px-4 py-5 my-3">
+    <% if (locals.data) { %>
+        <img src="/images/astronaut.png" width="200" height="150" class="mb-3" style="border-radius: 1rem;">
+        <h2 class="text-white main-text mb-3">There are currently <%= data.peopleNo %> astronauts aboard the ISS!</h2>
+        <h2 class="text-white main-text mb-3">Scroll right to learn all about them!</h2>
     <% } %>
   </div>
-<!-- </div> -->
+  <% if (locals.profiles) { %>
+    <% locals.profiles.forEach((person) => { %>
+      <div class="main-content px-4 py-5 my-3">
+        <img src="<%= person.image.image_url %>" width="200" height="200" class="mb-3" style="border-radius: 1rem; object-fit: cover; object-position: top">
+        <h2 class="text-white"><%= person.name %></h2>
+        <p class="text-white"><em><%= person.agency.name %></em></p>
+        <p class="text-white mb-0">Age: <%= person.age %></p>
+        <p class="text-white mb-0">Nationality: <%= person.nationality[0].name %></p>
+        <p class="text-white mb-0">No. of Flights: <%= person.flights_count %></p>
+        <p class="text-white">No. of spacewalks: <%= person.spacewalks_count %></p>
+        <p class="text-white"><%= person.bio %></p>
+      </div>
+    <% }) %>
+  <% } %>
+</div>
