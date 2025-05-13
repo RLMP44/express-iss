@@ -16,16 +16,29 @@
   </div>
   <% if (locals.profiles) { %>
     <% locals.profiles.forEach((person) => { %>
-      <div class="main-content p-5 my-3">
-        <img src="<%= person.image.image_url %>" width="200" height="200" class="mb-3" style="border-radius: 1rem; object-fit: cover; object-position: top">
-        <h2 class="text-white"><%= person.name %></h2>
-        <p class="text-white"><em><%= person.agency.name %></em></p>
-        <p class="text-white mb-0">Age: <%= person.age %></p>
-        <p class="text-white mb-0">Nationality: <%= person.nationality[0].name %></p>
-        <p class="text-white mb-0">No. of Flights: <%= person.flights_count %></p>
-        <p class="text-white">No. of spacewalks: <%= person.spacewalks_count %></p>
-        <p class="text-white"><%= person.bio %></p>
-      </div>
+      <% if (person[0]) { %>
+        <div class="main-content p-5 my-3">
+          <img src="<%= person[0].image?.image_url %>" width="200" height="200" class="mb-3" style="border-radius: 1rem; object-fit: cover; object-position: top">
+          <h2 class="text-white"><%= person[0].name %></h2>
+          <p class="text-white"><em><%= person[0].agency?.name %></em></p>
+          <p class="text-white mb-0">Age: <%= person[0].age %></p>
+          <p class="text-white mb-0">Nationality: <%= person[0].nationality?.name %></p>
+          <p class="text-white mb-0">No. of Flights: <%= person[0].flights_count %></p>
+          <p class="text-white">No. of spacewalks: <%= person[0].spacewalks_count %></p>
+          <p class="text-white"><%= person[0].bio %></p>
+        </div>
+      <% } %>
     <% }) %>
   <% } %>
 </div>
+
+<!--
+if have only data:
+  display data with no buttons
+if have data and astro:
+  display data with buttons
+  if press button:
+    display astro with buttons
+  (optional) if press button and on last astro:
+    display data with buttons
+-->

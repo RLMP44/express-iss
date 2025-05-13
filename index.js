@@ -79,7 +79,7 @@ app.get('/astronauts', async (req, res) => {
     console.error("Error fetching data:", error.message);
     return res.render("astronauts.ejs", { layout: "layout", data: astronautsData, profiles: astronautBios });
   }
-  res.render("astronauts.ejs", { layout: "layout", data: astronautsData, profiles: astronautBios[0] });
+  res.render("astronauts.ejs", { layout: "layout", data: astronautsData, profiles: astronautBios });
 })
 
 app.listen(port, () => {
