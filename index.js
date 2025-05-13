@@ -71,7 +71,7 @@ app.get('/astronauts', async (req, res) => {
     astronautBios = await Promise.all(
       astronautsData.people.map(async (person) => {
         const peopleResponse = await axios.get(devAPIEndpoint + `/?search=${person}`);
-        return peopleResponse.data.results; // Extract data before returning
+        return peopleResponse.data.results;
       })
     );
     console.log(astronautBios);

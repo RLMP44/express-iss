@@ -9,3 +9,32 @@
   box-shadow: inset 3px 3px 9px white;
   transition: .5s;
 }
+
+.arrow-button {
+  padding: 1rem;
+}
+
+.arrow {
+  border: solid rgba(167, 231, 248, .4);
+  border-width: 0px 5px 5px 0;
+  display: inline-block;
+  padding: 10px;
+}
+
+.arrow:hover {
+  border: solid rgba(167, 231, 248, .8);
+  border-width: 0px 5px 5px 0;
+  display: inline-block;
+  padding: 10px;
+  transition: .3s;
+}
+
+.right {
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+}
+
+.left {
+  transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
+}

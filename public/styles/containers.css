@@ -59,3 +59,10 @@
   justify-content: center;
   gap: 10px;
 }
+
+.scroll-buttons-container {
+  position: absolute;
+  top: 50%;
+  width: inherit;
+  height: auto;
+}
