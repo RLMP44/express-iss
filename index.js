@@ -70,7 +70,6 @@ app.get('/astronauts', async (req, res) => {
       scrollMessage: 'Scroll right to learn all about them!'
     }
     astronautsData.unshift(firstCardData);
-    console.log(astronautsData);
     // Run API requests for each astronaut in parallel
     const astronautAPIEndpoint = 'https://ll.thespacedevs.com/2.3.0/astronauts';
     const devAPIEndpoint = 'https://lldev.thespacedevs.com/2.3.0/astronauts'
