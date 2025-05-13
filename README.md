@@ -3,7 +3,7 @@ ISS location and astronaut stats are all displayed over a planetary background o
 
 APIs in use:
  - https://wheretheiss.at/w/developer
- - http://open-notify.org/Open-Notify-API/People-In-Space/
+ - https://github.com/corquaid/international-space-station-APIs?tab=readme-ov-file
  - https://thespacedevs.com/llapi
 
 ![image](https://github.com/user-attachments/assets/685707e6-f7e3-4766-9034-d54f0713f4e1)
