@@ -1,8 +1,13 @@
 <div class="carousel-container container">
+  <!-- start for each here -->
+    <!-- if first in array -->
+      <!-- display data -->
+    <!-- else -->
+      <!-- display astros -->
   <div class="main-content p-5 my-3" style="position: relative;">
     <% if (locals.data) { %>
         <img src="/images/astronaut.png" width="200" height="150" class="mb-3" style="border-radius: 1rem;">
-        <h2 class="text-white main-text mb-3">There are currently <%= data.peopleNo %> astronauts aboard the ISS!</h2>
+        <h2 class="text-white main-text mb-3">There are currently <%#= data.peopleNo %> astronauts aboard the ISS!</h2>
         <h2 class="text-white main-text mb-3">Scroll right to learn all about them!</h2>
     <% } %>
     <div class="scroll-buttons-container d-flex justify-content-between">
@@ -14,22 +19,22 @@
       </div>
     </div>
   </div>
-  <% if (locals.profiles) { %>
-    <% locals.profiles.forEach((person) => { %>
-      <% if (person[0]) { %>
+  <%# if (locals.profiles) { %>
+    <%# locals.profiles.forEach((person) => { %>
+      <%# if (person[0]) { %>
         <div class="main-content p-5 my-3">
-          <img src="<%= person[0].image?.image_url %>" width="200" height="200" class="mb-3" style="border-radius: 1rem; object-fit: cover; object-position: top">
-          <h2 class="text-white"><%= person[0].name %></h2>
-          <p class="text-white"><em><%= person[0].agency?.name %></em></p>
-          <p class="text-white mb-0">Age: <%= person[0].age %></p>
-          <p class="text-white mb-0">Nationality: <%= person[0].nationality?.name %></p>
-          <p class="text-white mb-0">No. of Flights: <%= person[0].flights_count %></p>
-          <p class="text-white">No. of spacewalks: <%= person[0].spacewalks_count %></p>
-          <p class="text-white"><%= person[0].bio %></p>
+          <img src="<%#= person[0].image?.image_url %>" width="200" height="200" class="mb-3" style="border-radius: 1rem; object-fit: cover; object-position: top">
+          <h2 class="text-white"><%#= person[0].name %></h2>
+          <p class="text-white"><em><%#= person[0].agency?.name %></em></p>
+          <p class="text-white mb-0">Age: <%#= person[0].age %></p>
+          <p class="text-white mb-0">Nationality: <%#= person[0].nationality?.name %></p>
+          <p class="text-white mb-0">No. of Flights: <%#= person[0].flights_count %></p>
+          <p class="text-white">No. of spacewalks: <%#= person[0].spacewalks_count %></p>
+          <p class="text-white"><%#= person[0].bio %></p>
         </div>
-      <% } %>
-    <% }) %>
-  <% } %>
+      <%# } %>
+    <%# }) %>
+  <%# } %>
 </div>
 
 <!--

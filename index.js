@@ -5,7 +5,7 @@ import { dirname } from "path";
 import { fileURLToPath } from "url";
 import bodyParser from "body-parser";
 import countryCodes from "./country_codes.json" assert { type: "json" };
-import astronautsInSpace from "./astros.json" assert { type: "json" };
+// import astronautsInSpace from "./astros.json" assert { type: "json" };
 import expressLayouts from "express-ejs-layouts";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -15,7 +15,7 @@ const port = 3000;
 var satelliteData = {};
 var locData = {};
 var countryName = "";
-var astronautsData = {};
+var astronautsData = [];
 var astronautBios = {};
 
 // Set EJS as the template engine
@@ -62,19 +62,25 @@ app.get('/', async (req, res) => {
 
 app.get('/astronauts', async (req, res) => {
   try {
-    // const response = await axios.get("http://api.open-notify.org/astros.json");
-    // astronautsData = getISSAstronautData(response.data.people);
-    astronautsData = getISSAstronautData(astronautsInSpace.people);
+    const response = await axios.get("https://corquaid.github.io/international-space-station-APIs/JSON/people-in-space.json");
+    astronautsData = response.data.people.filter(person => person.iss === true);
+    const firstCardData = {
+      name: 'first card',
+      displayMessage: `There are currently ${astronautsData.length} astronauts aboard the ISS!`,
+      scrollMessage: 'Scroll right to learn all about them!'
+    }
+    astronautsData.unshift(firstCardData);
+    console.log(astronautsData);
     // Run API requests for each astronaut in parallel
     const astronautAPIEndpoint = 'https://ll.thespacedevs.com/2.3.0/astronauts';
     const devAPIEndpoint = 'https://lldev.thespacedevs.com/2.3.0/astronauts'
     astronautBios = await Promise.all(
-      astronautsData.people.map(async (person) => {
-        const peopleResponse = await axios.get(devAPIEndpoint + `/?search=${person}`);
+      astronautsData.slice(1).map(async (person) => {
+        const peopleResponse = await axios.get(devAPIEndpoint + `/?search=${person.name}`);
         return peopleResponse.data.results;
       })
     );
-    console.log(astronautBios);
+    astronautBios = astronautBios.flat()
   } catch (error) {
     console.error("Error fetching data:", error.message);
     return res.render("astronauts.ejs", { layout: "layout", data: astronautsData, profiles: astronautBios });
