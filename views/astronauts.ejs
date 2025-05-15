@@ -1,8 +1,9 @@
 <% if (locals.data && locals.profiles) { %>
   <div class="carousel-container container">
     <% locals.data.forEach((person, index) => { %>
+      <!-- add hidden class to all cards but the first -->
+      <!-- 'scroll' the carousel by adding/removing hidden class by ID set below -->
       <div class="main-content p-5 my-3 card-content <%= index === 0 ? '' : 'hidden' %>" id="card-<%= index %>" id="card-<%= index %>">
-        <%# var cardIndex = 1; %>
         <% if (person.name === 'first card') { %>
           <img src="/images/astronaut.png" width="200" height="150" class="mb-3" style="border-radius: 1rem;">
           <h2 class="text-white main-text mb-3"><%= person.displayMessage %></h2>
@@ -19,18 +20,7 @@
           <p class="text-white">No. of spacewalks: <%= astro[0].spacewalks_count %></p>
           <p class="text-white"><%= astro[0].bio %></p>
         <% } %>
-        <div class="scroll-buttons-container d-flex justify-content-between">
-          <div class="arrow-button left-button"
-            data-card-index="<%= index %>"
-            data-cards='<%= JSON.stringify(data) %>'>
-            <i class="arrow left"></i>
-          </div>
-          <div class="arrow-button right-button"
-            data-card-index="<%= index %>"
-            data-cards='<%= JSON.stringify(data) %>'>
-            <i class="arrow right"></i>
-          </div>
-        </div>
+        <%- include("./partials/card-scroll-buttons.ejs", { index: index, data: data })  %>
       </div>
     <% }) %>
   </div>

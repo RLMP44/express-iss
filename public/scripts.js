@@ -6,20 +6,16 @@ function scrollPreviousCard(cards, currentIndex) {
   return currentIndex === 0 ? cards.length - 1 : currentIndex - 1;
 }
 
-$('.right-button').on('click', function(event) {
-  const button = event.target.closest('.arrow-button');
-  const cardIndex = parseInt(button.getAttribute('data-card-index'));
-  const cards = JSON.parse(button.getAttribute('data-cards'));
-  const newIndex = scrollNextCard(cards, cardIndex);
-  $(`#card-${cardIndex}`).addClass("hidden");
-  $(`#card-${newIndex}`).removeClass("hidden");
-})
-
-$('.left-button').on('click', function(event) {
-  const button = event.target.closest('.arrow-button');
-  const cardIndex = parseInt(button.getAttribute('data-card-index'));
-  const cards = JSON.parse(button.getAttribute('data-cards'));
-  const newIndex = scrollPreviousCard(cards, cardIndex);
-  $(`#card-${cardIndex}`).addClass("hidden");
-  $(`#card-${newIndex}`).removeClass("hidden");
+// need to use .each because jQuery returns an object
+$('.arrow-button').each(function() {
+  $(this).on('click', function(event) {
+    const currentButton = $(this)
+    const arrow = event.target.closest('.arrow-button');
+    const cardIndex = parseInt(arrow.getAttribute('data-card-index'));
+    const cards = JSON.parse(arrow.getAttribute('data-cards'));
+    // arrow buttons only have 'right-button' or 'left-button'
+    const newIndex = currentButton.hasClass('right-button') ? scrollNextCard(cards, cardIndex) : scrollPreviousCard(cards, cardIndex) ;
+    $(`#card-${cardIndex}`).addClass("hidden");
+    $(`#card-${newIndex}`).removeClass("hidden");
+  });
 });

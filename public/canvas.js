@@ -4,8 +4,6 @@ var contentContainer = document.querySelector(".body-container");
 console.log(contentContainer);
 canvas.width = contentContainer.clientWidth;
 canvas.height = contentContainer.clientHeight;
-// canvas.width = window.innerWidth;
-// canvas.height = window.innerHeight;
 
 // get context to access all functions
 var ctx = canvas.getContext("2d");
