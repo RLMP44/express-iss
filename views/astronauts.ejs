@@ -10,7 +10,6 @@
           <h2 class="text-white main-text mb-3"><%= person.scrollMessage %></h2>
         <% } else { %>
           <% var astro = profiles.filter(p => p.name === person.name) %>
-          <%= console.log(astro[0]) %>
           <img src="<%= astro[0].image?.image_url %>" width="200" height="200" class="mb-3" style="border-radius: 1rem; object-fit: cover; object-position: top">
           <h2 class="text-white"><%= astro[0].name %></h2>
           <p class="text-white"><em><%= astro[0].agency?.name %></em></p>

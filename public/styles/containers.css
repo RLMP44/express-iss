@@ -68,6 +68,6 @@
 .scroll-buttons-container {
   position: absolute;
   top: 50%;
-  width: inherit;
+  width: -webkit-fill-available;
   height: auto;
 }
