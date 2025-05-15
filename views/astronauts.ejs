@@ -1,14 +1,14 @@
-<div class="carousel-container container">
-  <% if (locals.data && locals.profiles) { %>
-    <%# locals.data.forEach((person, index) => { %>
-      <div class="main-content p-5 my-3" style="position: relative;">
-        <% var cardIndex = 1; %>
-        <% if (data[cardIndex].name === 'first card') { %>
+<% if (locals.data && locals.profiles) { %>
+  <div class="carousel-container container">
+    <% locals.data.forEach((person, index) => { %>
+      <div class="main-content p-5 my-3 card-content <%= index === 0 ? '' : 'hidden' %>" id="card-<%= index %>" id="card-<%= index %>">
+        <%# var cardIndex = 1; %>
+        <% if (person.name === 'first card') { %>
           <img src="/images/astronaut.png" width="200" height="150" class="mb-3" style="border-radius: 1rem;">
-          <h2 class="text-white main-text mb-3"><%= data[cardIndex].displayMessage %></h2>
-          <h2 class="text-white main-text mb-3"><%= data[cardIndex].scrollMessage %></h2>
+          <h2 class="text-white main-text mb-3"><%= person.displayMessage %></h2>
+          <h2 class="text-white main-text mb-3"><%= person.scrollMessage %></h2>
         <% } else { %>
-          <% var astro = profiles.filter(p => p.name === data[cardIndex].name) %>
+          <% var astro = profiles.filter(p => p.name === person.name) %>
           <%= console.log(astro[0]) %>
           <img src="<%= astro[0].image?.image_url %>" width="200" height="200" class="mb-3" style="border-radius: 1rem; object-fit: cover; object-position: top">
           <h2 class="text-white"><%= astro[0].name %></h2>
@@ -19,19 +19,21 @@
           <p class="text-white">No. of spacewalks: <%= astro[0].spacewalks_count %></p>
           <p class="text-white"><%= astro[0].bio %></p>
         <% } %>
-      <div class="scroll-buttons-container d-flex justify-content-between">
-        <div class="arrow-button left-button"
-          data-card-index="<%= cardIndex %>"
-          data-cards='<%= JSON.stringify(data) %>'>
-          <i class="arrow left"></i>
-        </div>
-        <div class="arrow-button right-button"
-          data-card-index="<%= cardIndex %>"
-          data-cards='<%= JSON.stringify(data) %>'>
-          <i class="arrow right"></i>
+        <div class="scroll-buttons-container d-flex justify-content-between">
+          <div class="arrow-button left-button"
+            data-card-index="<%= index %>"
+            data-cards='<%= JSON.stringify(data) %>'>
+            <i class="arrow left"></i>
+          </div>
+          <div class="arrow-button right-button"
+            data-card-index="<%= index %>"
+            data-cards='<%= JSON.stringify(data) %>'>
+            <i class="arrow right"></i>
+          </div>
         </div>
       </div>
-    </div>
-    <%# }) %>
-  <% } %>
-</div>
+    <% }) %>
+  </div>
+<% } else { %>
+  <h2>Check back later!</h2>
+<% } %>
