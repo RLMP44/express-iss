@@ -4,7 +4,7 @@ import path from 'path';
 import { dirname } from "path";
 import { fileURLToPath } from "url";
 import bodyParser from "body-parser";
-import countryCodes from "./country_codes.json" assert { type: "json" };
+import countryCodes from "./data/country_codes.json" assert { type: "json" };
 import expressLayouts from "express-ejs-layouts";
 import fs from "fs";
 import schedule from "node-schedule";
@@ -37,7 +37,7 @@ async function prepAstroNames() {
   try {
     const response = await axios.get("https://corquaid.github.io/international-space-station-APIs/JSON/people-in-space.json");
     const preliminaryAstroData = response.data.people.filter(person => person.iss === true);
-    fs.writeFile("astronautsData.json", JSON.stringify(preliminaryAstroData, null, 2), (error) => {
+    fs.writeFile("./data/astronautsData.json", JSON.stringify(preliminaryAstroData, null, 2), (error) => {
       if (error) throw error;
       console.log("astroData file has been saved!");
     });
@@ -49,18 +49,16 @@ async function prepAstroNames() {
 // scheduled job: use ISS astronaut names to get bios and stats from space devs API
 async function prepAstroBios() {
   try {
-    console.log("here")
     const astronautAPIEndpoint = 'https://ll.thespacedevs.com/2.3.0/astronauts';
     const devAPIEndpoint = 'https://lldev.thespacedevs.com/2.3.0/astronauts'
     const astronautsData = getAstronautData();
-    console.log("made it")
     const preliminaryAstroBios = await Promise.all(
       astronautsData.map(async (person) => {
         const peopleResponse = await axios.get(devAPIEndpoint + `/?search=${person.name}`);
         return peopleResponse.data.results;
       })
     );
-    fs.writeFile("astronautBios.json", JSON.stringify(preliminaryAstroBios.flat(), null, 2), (error) => {
+    fs.writeFile("./data/astronautBios.json", JSON.stringify(preliminaryAstroBios.flat(), null, 2), (error) => {
       if (error) throw error;
       console.log("astroBios file has been saved!");
     });
@@ -70,12 +68,12 @@ async function prepAstroBios() {
 };
 
 function getAstronautData() {
-  const data = fs.readFileSync("./astronautsData.json", "utf-8");
+  const data = fs.readFileSync("./data/astronautsData.json", "utf-8");
   return JSON.parse(data);
 }
 
 function getAstronautBios() {
-  const data = fs.readFileSync("./astronautBios.json", "utf-8");
+  const data = fs.readFileSync("./data/astronautBios.json", "utf-8");
   return JSON.parse(data);
 }
 
@@ -97,8 +95,6 @@ app.get('/', async (req, res) => {
 
 app.get('/astronauts', async (req, res) => {
   try {
-    // await prepAstroNames();
-    // await prepAstroBios();
     var astronautsData = getAstronautData();
     var astronautBios = getAstronautBios();
     // Set up first card for carousel
