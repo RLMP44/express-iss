@@ -6,8 +6,8 @@ import { fileURLToPath } from "url";
 import bodyParser from "body-parser";
 import countryCodes from "./country_codes.json" assert { type: "json" };
 import expressLayouts from "express-ejs-layouts";
-import fs from 'fs';
-import cron from 'node-cron'
+import fs from "fs";
+import schedule from "node-schedule";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const app = express();
@@ -32,7 +32,7 @@ function handleLocData(code) {
   return (country && country.Code !== "??") ? country.Name : "the ocean";
 }
 
-// cron job: call API listing people in space & filter for ISS astronauts
+// scheduled job: call API listing people in space & filter for ISS astronauts
 async function prepAstroNames() {
   try {
     const response = await axios.get("https://corquaid.github.io/international-space-station-APIs/JSON/people-in-space.json");
@@ -46,7 +46,7 @@ async function prepAstroNames() {
   }
 };
 
-// cron job: use ISS astronaut names to get bios and stats from space devs API
+// scheduled job: use ISS astronaut names to get bios and stats from space devs API
 async function prepAstroBios() {
   try {
     console.log("here")
@@ -60,7 +60,6 @@ async function prepAstroBios() {
         return peopleResponse.data.results;
       })
     );
-    console.log("-------------------" + preliminaryAstroBios.flat()[0])
     fs.writeFile("astronautBios.json", JSON.stringify(preliminaryAstroBios.flat(), null, 2), (error) => {
       if (error) throw error;
       console.log("astroBios file has been saved!");
@@ -119,5 +118,5 @@ app.listen(port, () => {
   console.log('working');
 });
 
-// cron.schedule('20 13 * * *', prepAstroNames);
-// cron.schedule('21 13 * * *', prepAstroBios);
+schedule.scheduleJob('0 6 * * *', prepAstroNames);
+schedule.scheduleJob('0 6 * * *', prepAstroBios);
