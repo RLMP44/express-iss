@@ -37,10 +37,8 @@ async function prepAstroNames() {
   try {
     const response = await axios.get("https://corquaid.github.io/international-space-station-APIs/JSON/people-in-space.json");
     const preliminaryAstroData = response.data.people.filter(person => person.iss === true);
-    fs.writeFile("./data/astronautsData.json", JSON.stringify(preliminaryAstroData, null, 2), (error) => {
-      if (error) throw error;
-      console.log("astroData file has been saved!");
-    });
+    await fs.promises.writeFile("./data/astronautsData.json", JSON.stringify(preliminaryAstroData, null, 2));
+    console.log("astroData file has been saved!");
   } catch (error) {
     console.error("Error fetching data:", error.message);
   }
@@ -54,27 +52,37 @@ async function prepAstroBios() {
     const astronautsData = getAstronautData();
     const preliminaryAstroBios = await Promise.all(
       astronautsData.map(async (person) => {
-        const peopleResponse = await axios.get(devAPIEndpoint + `/?search=${person.name}`);
+        const peopleResponse = await axios.get(astronautAPIEndpoint + `/?search=${person.name}`);
         return peopleResponse.data.results;
       })
     );
-    fs.writeFile("./data/astronautBios.json", JSON.stringify(preliminaryAstroBios.flat(), null, 2), (error) => {
-      if (error) throw error;
-      console.log("astroBios file has been saved!");
-    });
+    await fs.promises.writeFile("./data/astronautBios.json", JSON.stringify(preliminaryAstroBios.flat(), null, 2));
+    console.log("astroBios file has been saved!");
   } catch (error) {
     console.error("Error fetching data:", error.message);
   }
 };
 
-function getAstronautData() {
-  const data = fs.readFileSync("./data/astronautsData.json", "utf-8");
-  return JSON.parse(data);
+async function getAstronautData() {
+  try {
+    const data = await fs.promises.readFile("./data/astronautsData.json", "utf-8");
+    const parsedData = JSON.parse(data);
+    // prevent errors if data is not in an array, without overwriting any existing data
+    return Array.isArray(parsedData) ? parsedData : [];
+  } catch (error) {
+    console.error("Error reading astronaut data:", error.message);
+    return [];
+  }
 }
 
-function getAstronautBios() {
-  const data = fs.readFileSync("./data/astronautBios.json", "utf-8");
-  return JSON.parse(data);
+async function getAstronautBios() {
+  try {
+    const data = await fs.promises.readFile("./data/astronautBios.json", "utf-8");
+    return JSON.parse(data);
+  } catch (error) {
+    console.error("Error reading astronaut bios:", error.message);
+    return [];
+  }
 }
 
 app.get('/', async (req, res) => {
@@ -95,8 +103,8 @@ app.get('/', async (req, res) => {
 
 app.get('/astronauts', async (req, res) => {
   try {
-    var astronautsData = getAstronautData();
-    var astronautBios = getAstronautBios();
+    var astronautsData = await getAstronautData();
+    var astronautBios = await getAstronautBios();
     // Set up first card for carousel
     const firstCardData = {
       name: 'first card',
@@ -115,4 +123,4 @@ app.listen(port, () => {
 });
 
 schedule.scheduleJob('0 6 * * *', prepAstroNames);
-schedule.scheduleJob('0 6 * * *', prepAstroBios);
+schedule.scheduleJob('5 6 * * *', prepAstroBios);
