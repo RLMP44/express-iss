@@ -44,7 +44,7 @@ footer {
   }
 
   .copyright {
-    grid-area: 3 / 1 / 3 / -1 !important;
+    grid-area: 2 / 1 / 2 / -1 !important;
     justify-self: center;
     margin: 0;
   }
@@ -52,12 +52,7 @@ footer {
   .dedication {
     grid-area: 1 / 1 / 1 / -1 !important;
     margin: 0;
-  }
-
-  .credit {
-    grid-area: 2 / 1 / 2 / -1 !important;
     justify-self: center;
-    margin: 0;
   }
 }
 
@@ -91,16 +86,11 @@ footer {
   }
 
   .copyright {
-    grid-area: 2 / 1 / 2 / 3 !important;
+    grid-area: 1 / 1 / 1 / 3 !important;
   }
 
   .dedication {
-    grid-area: 1 / 2 / 1 / 6 !important;
-    border-bottom: solid 1px white;
-  }
-
-  .credit {
-    grid-area: 2 / 3 / 2 / -1 !important;
+    grid-area: 1 / 4 / 1 / -1 !important;
   }
 }
 
@@ -118,16 +108,11 @@ footer {
   }
 
   .copyright {
-    grid-area: 2 / 1 / 2 / 3 !important;
+    grid-area: 1 / 1 / 1 / 3 !important;
   }
 
   .dedication {
-    grid-area: 1 / 2 / 1 / 6 !important;
-    border-bottom: solid 1px white;
-  }
-
-  .credit {
-    grid-area: 2 / 4 / 2 / -1 !important;
+    grid-area: 1 / 4 / 1 / -1 !important;
   }
 }
 
