@@ -15,6 +15,7 @@
     "bootstrap": "^5.3.5",
     "ejs": "^3.1.10",
     "express": "^5.1.0",
-    "express-ejs-layouts": "^2.5.1"
+    "express-ejs-layouts": "^2.5.1",
+    "node-cron": "^4.0.5"
   }
 }

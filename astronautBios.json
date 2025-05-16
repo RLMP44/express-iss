@@ -1,0 +1,549 @@
+[
+  {
+    "id": 7,
+    "url": "https://lldev.thespacedevs.com/2.3.0/astronauts/7/",
+    "name": "Anne McClain",
+    "status": {
+      "id": 1,
+      "name": "Active"
+    },
+    "agency": {
+      "response_mode": "list",
+      "id": 44,
+      "url": "https://lldev.thespacedevs.com/2.3.0/agencies/44/",
+      "name": "National Aeronautics and Space Administration",
+      "abbrev": "NASA",
+      "type": {
+        "id": 1,
+        "name": "Government"
+      }
+    },
+    "image": {
+      "id": 290,
+      "name": "[AUTO] Anne McClain - image",
+      "image_url": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/anne2520mcclain_image_20181127210625.jpg",
+      "thumbnail_url": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/255bauto255d__image_thumbnail_20240305185442.jpeg",
+      "credit": null,
+      "license": {
+        "id": 1,
+        "name": "Unknown",
+        "priority": 9,
+        "link": null
+      },
+      "single_use": true,
+      "variants": []
+    },
+    "response_mode": "normal",
+    "type": {
+      "id": 2,
+      "name": "Government"
+    },
+    "in_space": true,
+    "time_in_space": "P260DT15H19M1S",
+    "eva_time": "PT18H52M",
+    "age": 45,
+    "date_of_birth": "1979-06-07",
+    "date_of_death": null,
+    "nationality": [
+      {
+        "id": 2,
+        "name": "United States of America",
+        "alpha_2_code": "US",
+        "alpha_3_code": "USA",
+        "nationality_name": "American",
+        "nationality_name_composed": "Americano"
+      }
+    ],
+    "bio": "Anne Charlotte McClain is a lieutenant colonel in the U.S. Army currently assigned to NASA Astronaut Group 21.",
+    "wiki": "https://en.wikipedia.org/wiki/Anne_McClain",
+    "last_flight": "2025-03-14T23:03:48Z",
+    "first_flight": "2018-12-03T11:31:52Z",
+    "social_media_links": [
+      {
+        "id": 198,
+        "social_media": {
+          "id": 1,
+          "name": "X",
+          "url": "https://x.com",
+          "logo": {
+            "id": 2320,
+            "name": "X logo",
+            "image_url": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/x_logo_image_20250211191027.jpg",
+            "thumbnail_url": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/x_logo_image_thumbnail_20250211191027.jpeg",
+            "credit": "X",
+            "license": {
+              "id": 1,
+              "name": "Unknown",
+              "priority": 9,
+              "link": null
+            },
+            "single_use": true,
+            "variants": []
+          }
+        },
+        "url": "https://twitter.com/AstroAnnimal"
+      }
+    ],
+    "flights_count": 2,
+    "landings_count": 1,
+    "spacewalks_count": 3
+  },
+  {
+    "id": 706,
+    "url": "https://lldev.thespacedevs.com/2.3.0/astronauts/706/",
+    "name": "Nichole Ayers",
+    "status": {
+      "id": 1,
+      "name": "Active"
+    },
+    "agency": {
+      "response_mode": "list",
+      "id": 44,
+      "url": "https://lldev.thespacedevs.com/2.3.0/agencies/44/",
+      "name": "National Aeronautics and Space Administration",
+      "abbrev": "NASA",
+      "type": {
+        "id": 1,
+        "name": "Government"
+      }
+    },
+    "image": {
+      "id": 280,
+      "name": "[AUTO] Nichole Ayers - image",
+      "image_url": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/nichole_ayers_image_20211206185339.jpg",
+      "thumbnail_url": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/255bauto255d__image_thumbnail_20240305185425.jpeg",
+      "credit": null,
+      "license": {
+        "id": 1,
+        "name": "Unknown",
+        "priority": 9,
+        "link": null
+      },
+      "single_use": true,
+      "variants": []
+    },
+    "response_mode": "normal",
+    "type": {
+      "id": 2,
+      "name": "Government"
+    },
+    "in_space": true,
+    "time_in_space": "P57DT3H1M39S",
+    "eva_time": "PT5H44M",
+    "age": 36,
+    "date_of_birth": "1989-01-01",
+    "date_of_death": null,
+    "nationality": [
+      {
+        "id": 2,
+        "name": "United States of America",
+        "alpha_2_code": "US",
+        "alpha_3_code": "USA",
+        "nationality_name": "American",
+        "nationality_name_composed": "Americano"
+      }
+    ],
+    "bio": "Nichole Ayers is a US Air Force major who graduated from the US Air Force Academy in Colorado Springs in 2011 with a bachelor’s degree in mathematics with a minor in Russian. She later earned a master’s degree in computational and applied mathematics from Rice University. Ayers is an experienced combat aviator with more than 200 combat hours and more than 1,150 hours of total flight time in the T-38 and the F-22 Raptor fighter jet. Ayers led the first ever all-woman formation of the aircraft in combat.\r\n\r\nExact date of birth unknown.",
+    "wiki": "https://en.wikipedia.org/wiki/Nichole_Ayers",
+    "last_flight": "2025-03-14T23:03:48Z",
+    "first_flight": "2025-03-14T23:03:48Z",
+    "social_media_links": [
+      {
+        "id": 278,
+        "social_media": {
+          "id": 1,
+          "name": "X",
+          "url": "https://x.com",
+          "logo": {
+            "id": 2320,
+            "name": "X logo",
+            "image_url": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/x_logo_image_20250211191027.jpg",
+            "thumbnail_url": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/x_logo_image_thumbnail_20250211191027.jpeg",
+            "credit": "X",
+            "license": {
+              "id": 1,
+              "name": "Unknown",
+              "priority": 9,
+              "link": null
+            },
+            "single_use": true,
+            "variants": []
+          }
+        },
+        "url": "https://twitter.com/Astro_Ayers"
+      },
+      {
+        "id": 279,
+        "social_media": {
+          "id": 2,
+          "name": "Instagram",
+          "url": "https://instagram.com",
+          "logo": {
+            "id": 2322,
+            "name": "Instagram logo",
+            "image_url": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/instagram_logo_image_20250211191139.png",
+            "thumbnail_url": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/instagram_logo_image_thumbnail_20250211191139.png",
+            "credit": "Instagram",
+            "license": {
+              "id": 1,
+              "name": "Unknown",
+              "priority": 9,
+              "link": null
+            },
+            "single_use": true,
+            "variants": []
+          }
+        },
+        "url": "https://www.instagram.com/astro_ayers"
+      }
+    ],
+    "flights_count": 1,
+    "landings_count": 0,
+    "spacewalks_count": 1
+  },
+  {
+    "id": 214,
+    "url": "https://lldev.thespacedevs.com/2.3.0/astronauts/214/",
+    "name": "Takuya Onishi",
+    "status": {
+      "id": 1,
+      "name": "Active"
+    },
+    "agency": {
+      "response_mode": "list",
+      "id": 37,
+      "url": "https://lldev.thespacedevs.com/2.3.0/agencies/37/",
+      "name": "Japan Aerospace Exploration Agency",
+      "abbrev": "JAXA",
+      "type": {
+        "id": 1,
+        "name": "Government"
+      }
+    },
+    "image": {
+      "id": 583,
+      "name": "[AUTO] Takuya Onishi - image",
+      "image_url": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/takuya2520onishi_image_20181201184314.jpg",
+      "thumbnail_url": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/255bauto255d__image_thumbnail_20240305190231.jpeg",
+      "credit": null,
+      "license": {
+        "id": 1,
+        "name": "Unknown",
+        "priority": 9,
+        "link": null
+      },
+      "single_use": true,
+      "variants": []
+    },
+    "response_mode": "normal",
+    "type": {
+      "id": 2,
+      "name": "Government"
+    },
+    "in_space": true,
+    "time_in_space": "P172DT5H15M12S",
+    "eva_time": "P0D",
+    "age": 49,
+    "date_of_birth": "1975-12-22",
+    "date_of_death": null,
+    "nationality": [
+      {
+        "id": 28,
+        "name": "Japan",
+        "alpha_2_code": "JP",
+        "alpha_3_code": "JPN",
+        "nationality_name": "Japanese",
+        "nationality_name_composed": "Nippo"
+      }
+    ],
+    "bio": "Takuya Onishi (大西 卓哉 Ōnishi Takuya, born 1975) is a Japanese astronaut selected for the Japan Aerospace Exploration Agency (JAXA) in 2009.[1] He spent four months onboard the International Space Station in 2016.",
+    "wiki": "https://en.wikipedia.org/wiki/Takuya_Onishi",
+    "last_flight": "2025-03-14T23:03:48Z",
+    "first_flight": "2016-07-07T01:36:40Z",
+    "social_media_links": [
+      {
+        "id": 280,
+        "social_media": {
+          "id": 1,
+          "name": "X",
+          "url": "https://x.com",
+          "logo": {
+            "id": 2320,
+            "name": "X logo",
+            "image_url": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/x_logo_image_20250211191027.jpg",
+            "thumbnail_url": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/x_logo_image_thumbnail_20250211191027.jpeg",
+            "credit": "X",
+            "license": {
+              "id": 1,
+              "name": "Unknown",
+              "priority": 9,
+              "link": null
+            },
+            "single_use": true,
+            "variants": []
+          }
+        },
+        "url": "https://twitter.com/Astro_Onishi"
+      }
+    ],
+    "flights_count": 2,
+    "landings_count": 1,
+    "spacewalks_count": 0
+  },
+  {
+    "id": 803,
+    "url": "https://lldev.thespacedevs.com/2.3.0/astronauts/803/",
+    "name": "Kirill Peskov",
+    "status": {
+      "id": 1,
+      "name": "Active"
+    },
+    "agency": {
+      "response_mode": "list",
+      "id": 63,
+      "url": "https://lldev.thespacedevs.com/2.3.0/agencies/63/",
+      "name": "Russian Federal Space Agency (ROSCOSMOS)",
+      "abbrev": "RFSA",
+      "type": {
+        "id": 1,
+        "name": "Government"
+      }
+    },
+    "image": {
+      "id": 2129,
+      "name": "Kirill Peskov during training",
+      "image_url": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/kirill_peskov_d_image_20240802063311.jpg",
+      "thumbnail_url": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/kirill_peskov_d_image_thumbnail_20240802063315.jpeg",
+      "credit": "Roscosmos",
+      "license": {
+        "id": 14,
+        "name": "Roscosmos Image Use Policy",
+        "priority": 3,
+        "link": "https://www.roscosmos.ru/22650/"
+      },
+      "single_use": false,
+      "variants": []
+    },
+    "response_mode": "normal",
+    "type": {
+      "id": 2,
+      "name": "Government"
+    },
+    "in_space": true,
+    "time_in_space": "P57DT3H2M47S",
+    "eva_time": "P0D",
+    "age": 35,
+    "date_of_birth": "1990-05-01",
+    "date_of_death": null,
+    "nationality": [
+      {
+        "id": 5,
+        "name": "Russia",
+        "alpha_2_code": "RU",
+        "alpha_3_code": "RUS",
+        "nationality_name": "Russian",
+        "nationality_name_composed": "Russo"
+      }
+    ],
+    "bio": "Russian group 17 cosmonaut and former airline pilot.",
+    "wiki": null,
+    "last_flight": "2025-03-14T23:03:48Z",
+    "first_flight": "2025-03-14T23:03:48Z",
+    "social_media_links": [],
+    "flights_count": 1,
+    "landings_count": 0,
+    "spacewalks_count": 0
+  },
+  {
+    "id": 585,
+    "url": "https://lldev.thespacedevs.com/2.3.0/astronauts/585/",
+    "name": "Sergey Ryzhikov",
+    "status": {
+      "id": 1,
+      "name": "Active"
+    },
+    "agency": {
+      "response_mode": "list",
+      "id": 63,
+      "url": "https://lldev.thespacedevs.com/2.3.0/agencies/63/",
+      "name": "Russian Federal Space Agency (ROSCOSMOS)",
+      "abbrev": "RFSA",
+      "type": {
+        "id": 1,
+        "name": "Government"
+      }
+    },
+    "image": {
+      "id": 375,
+      "name": "[AUTO] Sergey Ryzhikov - image",
+      "image_url": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/sergey_ryzhikov_image_20200603213525.jpg",
+      "thumbnail_url": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/255bauto255d__image_thumbnail_20240305185707.jpeg",
+      "credit": null,
+      "license": {
+        "id": 1,
+        "name": "Unknown",
+        "priority": 9,
+        "link": null
+      },
+      "single_use": true,
+      "variants": []
+    },
+    "response_mode": "normal",
+    "type": {
+      "id": 2,
+      "name": "Government"
+    },
+    "in_space": true,
+    "time_in_space": "P390DT22H41M18S",
+    "eva_time": "PT6H47M",
+    "age": 50,
+    "date_of_birth": "1974-08-19",
+    "date_of_death": null,
+    "nationality": [
+      {
+        "id": 5,
+        "name": "Russia",
+        "alpha_2_code": "RU",
+        "alpha_3_code": "RUS",
+        "nationality_name": "Russian",
+        "nationality_name_composed": "Russo"
+      }
+    ],
+    "bio": "Sergey Nikolayevich Ryzhiko born on August 19, 1974, lieutenant colonel of Russian Air Force, is a Russian cosmonaut, selected in 2006. Ryzhikov launched on his first spaceflight onboard the Soyuz MS-02 spacecraft. He spent approximately six months onboard the International Space Station taking part in Expedition 49/50, returning to Earth on April 10, 2017.",
+    "wiki": "https://en.wikipedia.org/wiki/Sergey_Ryzhikov_(cosmonaut)",
+    "last_flight": "2025-04-08T05:47:15Z",
+    "first_flight": "2016-10-19T08:05:14Z",
+    "social_media_links": [],
+    "flights_count": 3,
+    "landings_count": 2,
+    "spacewalks_count": 1
+  },
+  {
+    "id": 807,
+    "url": "https://lldev.thespacedevs.com/2.3.0/astronauts/807/",
+    "name": "Alexey Zubritsky",
+    "status": {
+      "id": 1,
+      "name": "Active"
+    },
+    "agency": {
+      "response_mode": "list",
+      "id": 63,
+      "url": "https://lldev.thespacedevs.com/2.3.0/agencies/63/",
+      "name": "Russian Federal Space Agency (ROSCOSMOS)",
+      "abbrev": "RFSA",
+      "type": {
+        "id": 1,
+        "name": "Government"
+      }
+    },
+    "image": {
+      "id": 2188,
+      "name": "Alexey Zubritsky portrait",
+      "image_url": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/alexey_zubritsk_image_20240828194754.jpg",
+      "thumbnail_url": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/alexey_zubritsk_image_thumbnail_20240828194755.jpeg",
+      "credit": "Roscosmos",
+      "license": {
+        "id": 14,
+        "name": "Roscosmos Image Use Policy",
+        "priority": 3,
+        "link": "https://www.roscosmos.ru/22650/"
+      },
+      "single_use": true,
+      "variants": []
+    },
+    "response_mode": "normal",
+    "type": {
+      "id": 2,
+      "name": "Government"
+    },
+    "in_space": true,
+    "time_in_space": "P32DT20H19M22S",
+    "eva_time": "P0D",
+    "age": 32,
+    "date_of_birth": "1992-08-22",
+    "date_of_death": null,
+    "nationality": [
+      {
+        "id": 5,
+        "name": "Russia",
+        "alpha_2_code": "RU",
+        "alpha_3_code": "RUS",
+        "nationality_name": "Russian",
+        "nationality_name_composed": "Russo"
+      }
+    ],
+    "bio": "Russian cosmonaut from the 2018 selection",
+    "wiki": null,
+    "last_flight": "2025-04-08T05:47:15Z",
+    "first_flight": "2025-04-08T05:47:15Z",
+    "social_media_links": [],
+    "flights_count": 1,
+    "landings_count": 0,
+    "spacewalks_count": 0
+  },
+  {
+    "id": 578,
+    "url": "https://lldev.thespacedevs.com/2.3.0/astronauts/578/",
+    "name": "Jonny Kim",
+    "status": {
+      "id": 1,
+      "name": "Active"
+    },
+    "agency": {
+      "response_mode": "list",
+      "id": 44,
+      "url": "https://lldev.thespacedevs.com/2.3.0/agencies/44/",
+      "name": "National Aeronautics and Space Administration",
+      "abbrev": "NASA",
+      "type": {
+        "id": 1,
+        "name": "Government"
+      }
+    },
+    "image": {
+      "id": 915,
+      "name": "[AUTO] Jonny Kim - image",
+      "image_url": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/jonny2520kim_image_20200110161052.jpeg",
+      "thumbnail_url": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/255bauto255d__image_thumbnail_20240305191124.jpeg",
+      "credit": null,
+      "license": {
+        "id": 1,
+        "name": "Unknown",
+        "priority": 9,
+        "link": null
+      },
+      "single_use": true,
+      "variants": []
+    },
+    "response_mode": "normal",
+    "type": {
+      "id": 2,
+      "name": "Government"
+    },
+    "in_space": true,
+    "time_in_space": "P32DT20H16M30S",
+    "eva_time": "P0D",
+    "age": 41,
+    "date_of_birth": "1984-02-05",
+    "date_of_death": null,
+    "nationality": [
+      {
+        "id": 2,
+        "name": "United States of America",
+        "alpha_2_code": "US",
+        "alpha_3_code": "USA",
+        "nationality_name": "American",
+        "nationality_name_composed": "Americano"
+      }
+    ],
+    "bio": "Jonathan Yong Kim is an American physician, Navy SEAL, and NASA astronaut of the class of 2017. He is a recipient of the Silver Star and a Bronze Star, and a graduate of the University of San Diego and Harvard Medical School.",
+    "wiki": "https://en.wikipedia.org/wiki/Jonny_Kim",
+    "last_flight": "2025-04-08T05:47:15Z",
+    "first_flight": "2025-04-08T05:47:15Z",
+    "social_media_links": [],
+    "flights_count": 1,
+    "landings_count": 0,
+    "spacewalks_count": 0
+  }
+]
