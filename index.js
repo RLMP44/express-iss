@@ -118,6 +118,10 @@ app.get('/astronauts', async (req, res) => {
   }
 })
 
+app.get('/cesium', (req, res) => {
+  res.render('cesium.ejs', { accessToken: process.env.CESIUM_ACCESS_TOKEN });
+})
+
 app.listen(port, () => {
   console.log('working');
 });
