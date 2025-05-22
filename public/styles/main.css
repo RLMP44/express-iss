@@ -23,7 +23,7 @@ footer {
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
   .buttons-container {
-    align-items: flex-start;
+    align-items: center;
     gap: 0.5rem;
     margin: 0rem 2rem !important;
     display: flex !important;
@@ -53,6 +53,16 @@ footer {
     grid-area: 1 / 1 / 1 / -1 !important;
     margin: 0;
     justify-self: center;
+  }
+
+  header {
+    justify-content: space-between;
+  }
+}
+
+@media only screen and (min-width: 200px) and (max-width: 400px) {
+  header {
+    justify-content: center;
   }
 }
 
@@ -91,6 +101,10 @@ footer {
 
   .dedication {
     grid-area: 1 / 4 / 1 / -1 !important;
+  }
+
+  header {
+    justify-content: space-between;
   }
 }
 
