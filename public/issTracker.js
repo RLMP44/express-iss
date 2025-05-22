@@ -7,8 +7,19 @@ document.addEventListener("DOMContentLoaded", async function () {
   const positionProperty = new Cesium.SampledPositionProperty(Cesium.ReferenceFrame.FIXED);
   const issEntity = viewer.entities.add({
     position: positionProperty,
-    point: { pixelSize: 10, color: Cesium.Color.RED },
-    label: { text: "ISS", font: "14px sans-serif", fillColor: Cesium.Color.WHITE },
+    billboard: {
+      image: "/images/ISS.png",
+      width: 32,
+      height: 32,
+    },
+    label: {
+      text: "ISS",
+      font: "14pt monospace",
+      style: Cesium.LabelStyle.FILL_AND_OUTLINE,
+      outlineWidth: 2,
+      verticalOrigin: Cesium.VerticalOrigin.BOTTOM,
+      pixelOffset: new Cesium.Cartesian2(0, -9),
+    },
   });
 
   // set initial values to keep ISS image from disappearing
@@ -78,7 +89,6 @@ document.addEventListener("DOMContentLoaded", async function () {
           epoch: Cesium.JulianDate.toIso8601(time),
           cartographicDegrees: [0, position.longitude, position.latitude, position.altitude]
         },
-        point: { color: { rgba: [255, 255, 255, 255] }, pixelSize: 10 },
       },
     ];
 
