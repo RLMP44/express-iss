@@ -98,7 +98,7 @@ app.get('/', async (req, res) => {
     console.error("Error fetching data:", error.message);
     return res.render("index.ejs", { layout: "layout", data: satelliteData, loc: locData, name: countryName });
   }
-  res.render("index.ejs", { layout: "layout", data: satelliteData, loc: locData, name: countryName });
+  res.render("index.ejs", { layout: "layout", data: satelliteData, loc: locData, name: countryName, accessToken: process.env.CESIUM_ACCESS_TOKEN, excludeBackground: true });
 })
 
 app.get('/astronauts', async (req, res) => {
@@ -118,8 +118,8 @@ app.get('/astronauts', async (req, res) => {
   }
 })
 
-app.get('/cesium', (req, res) => {
-  res.render('cesium.ejs', { accessToken: process.env.CESIUM_ACCESS_TOKEN });
+app.get('/live', (req, res) => {
+  res.render('cesium.ejs', { accessToken: process.env.CESIUM_ACCESS_TOKEN, excludeBackground: true });
 })
 
 app.listen(port, () => {

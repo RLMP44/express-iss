@@ -13,9 +13,11 @@
     <div class="content">
       <%- include("./partials/header.ejs") %>
       <div class="main-content-container">
-        <div class="canvas-container">
-          <canvas></canvas>
-        </div>
+        <% if (typeof excludeBackground === "undefined") { %>
+          <div class="canvas-container">
+            <canvas></canvas>
+          </div>
+        <% } %>
         <div class="body-container">
           <%- body %>
         </div>
