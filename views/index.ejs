@@ -1,10 +1,12 @@
 <div id="cesiumContainer" style="height: 90vh; width: 100%;">
+  <!-- -------- CESIUM SCRIPTS -------- -->
   <script type="module">
-    console.log('<%= locals.accessToken %>')
     Cesium.Ion.defaultAccessToken = '<%= locals.accessToken %>';
     </script>
   <script src="/issTracker.js"></script>
   <script src="https://unpkg.com/satellite.js@4.0.0/dist/satellite.js"></script>
+
+  <!-- -------- ISS STATS DISPLAY WITH INITIAL DATA -------- -->
   <div class="container main-content live px-4 py-5 my-3 justify-content-center">
     <% if (locals.data && locals.loc && locals.name) { %>
       <div class="row align-items-center p-5">
@@ -18,8 +20,21 @@
         <form action="/astronauts" method="GET">
           <input type="submit" value="Astronauts" class="btn main-button btn-lg px-4">
         </form>
-        <a href='/live' class="btn main-button btn-lg px-4">View Live</a>
+        <a href='/' class="btn main-button btn-lg px-4">Refresh</a>
       </div>
     <% } %>
   </div>
 </div>
+
+<!-- -------- WEBSOCKET SCRIPTS FOR UPDATING ISS STATS DISPLAY -------- -->
+<script src="/socket.io/socket.io.js"></script>
+<script>
+  const socket = io();
+
+  socket.on("issUpdate", (data, countryName) => {
+    document.querySelector(".main-text").innerText = `The ISS is currently flying over ${countryName} at ${Math.round(data.velocity)} km/hr`;
+    document.querySelector(".lead:nth-of-type(1)").innerText = `Visibility: ${data.visibility}`;
+    document.querySelector(".lead:nth-of-type(2)").innerText = `Current coordinates: ${data.latitude.toFixed(2)}, ${data.longitude.toFixed(2)}`;
+    document.querySelector(".lead:nth-of-type(3)").innerText = `Current altitude: ${data.altitude.toFixed(0)} km`;
+  });
+</script>

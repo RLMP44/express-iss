@@ -8,10 +8,14 @@ import countryCodes from "./data/country_codes.json" assert { type: "json" };
 import expressLayouts from "express-ejs-layouts";
 import fs from "fs";
 import schedule from "node-schedule";
+import { createServer } from "http";
+import { Server } from "socket.io";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const app = express();
 const port = 3000;
+const server = createServer(app);
+const io = new Server(server);
 var satelliteData = {};
 var locData = {};
 var countryName = "";
@@ -27,12 +31,13 @@ app.set("layout", "layout");
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
+// display ISS location as country name or generalized 'ocean'
 function handleLocData(code) {
   const country = countryCodes.codes.find((c) => c.Code === code);
   return (country && country.Code !== "??") ? country.Name : "the ocean";
 }
 
-// scheduled job: call API listing people in space & filter for ISS astronauts
+// scheduled job (daily): call API listing people in space & filter for ISS astronauts
 async function prepAstroNames() {
   try {
     const response = await axios.get("https://corquaid.github.io/international-space-station-APIs/JSON/people-in-space.json");
@@ -44,7 +49,7 @@ async function prepAstroNames() {
   }
 };
 
-// scheduled job: use ISS astronaut names to get bios and stats from space devs API
+// scheduled job (daily): use ISS astronaut names to get bios and stats from space devs API
 async function prepAstroBios() {
   try {
     const astronautAPIEndpoint = 'https://ll.thespacedevs.com/2.3.0/astronauts';
@@ -85,19 +90,43 @@ async function getAstronautBios() {
   }
 }
 
+async function getISSCoordinates() {
+  try {
+    const response = await axios.get("https://api.wheretheiss.at/v1/satellites/25544/");
+    return response.data;
+  } catch (error) {
+    console.error("Error fetching ISS coordinates:", error.message);
+    return countryName;
+  }
+}
+
+// uses lat and lon from ISS coordinates function
+async function getCountryName(coordinates) {
+  if (!coordinates.lat || !coordinates.lon) {
+    console.warn("Invalid coordinates received:", coordinates);
+    return "an unknown location";
+  }
+
+  try {
+    const locResponse = await axios.get(`https://api.wheretheiss.at/v1/coordinates/${coordinates.lat},${coordinates.lon}`);
+    locData = locResponse.data;
+    return handleLocData(locResponse.data.country_code);
+  } catch (error) {
+    console.error("Error fetching country name:", error.message);
+    return "an unknown location";
+  }
+}
+
 app.get('/', async (req, res) => {
   try {
-    // Track the ISS
-    const response = await axios.get("https://api.wheretheiss.at/v1/satellites/25544");
-    satelliteData = response.data;
-    // Use ISS coordinates to get country code and change into country name
-    const locResponse = await axios.get(`https://api.wheretheiss.at/v1/coordinates/${satelliteData.latitude},${satelliteData.longitude}`);
-    countryName = (handleLocData(locResponse.data.country_code));
-    locData = locResponse.data;
+    // Initial ISS tracking
+    satelliteData = await getISSCoordinates();
+    // Use initial ISS coordinates to get initial country code and change into country name
+    countryName = await getCountryName({ lat: satelliteData.latitude, lon: satelliteData.longitude });
   } catch (error) {
     console.error("Error fetching data:", error.message);
-    return res.render("index.ejs", { layout: "layout", data: satelliteData, loc: locData, name: countryName });
   }
+  // render with newly saved data if no error and previously saved data otherwise
   res.render("index.ejs", { layout: "layout", data: satelliteData, loc: locData, name: countryName, accessToken: process.env.CESIUM_ACCESS_TOKEN, excludeBackground: true });
 })
 
@@ -112,19 +141,23 @@ app.get('/astronauts', async (req, res) => {
       scrollMessage: 'Scroll right to learn all about them!'
     }
     astronautsData.unshift(firstCardData);
-    res.render("astronauts.ejs", { layout: "layout", data: astronautsData, profiles: astronautBios });
   } catch (error) {
     console.error("Error fetching data:", error.message);
   }
+  res.render("astronauts.ejs", { layout: "layout", data: astronautsData, profiles: astronautBios });
 })
 
-app.get('/live', (req, res) => {
-  res.render('cesium.ejs', { accessToken: process.env.CESIUM_ACCESS_TOKEN, excludeBackground: true });
-})
+// use websocket to continuously update satellite data and country name every 1.5 sec
+setInterval(async () => {
+  const satelliteData = await getISSCoordinates();
+  const countryName = await getCountryName({ lat: satelliteData.latitude, lon: satelliteData.longitude});
+  io.emit("issUpdate", satelliteData, countryName)
+}, 1500);
 
-app.listen(port, () => {
+server.listen(port, () => {
   console.log('working');
 });
 
+// use scheduler to update astronaut names and bios every morning at 6
 schedule.scheduleJob('0 6 * * *', prepAstroNames);
 schedule.scheduleJob('5 6 * * *', prepAstroBios);
