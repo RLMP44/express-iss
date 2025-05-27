@@ -8,7 +8,8 @@ APIs in use:
  - https://github.com/corquaid/international-space-station-APIs?tab=readme-ov-file
  - https://thespacedevs.com/llapi
 
-![image](https://github.com/user-attachments/assets/f59dabc8-dcbf-42dd-b465-c9aff0f1e084)
+![image](https://github.com/user-attachments/assets/526ccb44-aa4f-4b3a-b00b-fbd440015cfe)
+![image](https://github.com/user-attachments/assets/88ac7c1c-e85c-4501-9267-c7b85b950e17)
 ![image](https://github.com/user-attachments/assets/2d4aef91-e61a-41be-b721-65df449ba2ce)
 
 
