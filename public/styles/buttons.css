@@ -38,3 +38,14 @@
   transform: rotate(135deg);
   -webkit-transform: rotate(135deg);
 }
+
+.toggle {
+  border: solid rgb(0, 0, 0);
+  border-width: 0px 5px 5px 0;
+  display: inline-block;
+  padding: .75rem;
+}
+
+.extra-left-margin {
+  margin-left: 1rem;
+}

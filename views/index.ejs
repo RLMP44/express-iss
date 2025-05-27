@@ -7,22 +7,29 @@
   <script src="https://unpkg.com/satellite.js@4.0.0/dist/satellite.js"></script>
 
   <!-- -------- ISS STATS DISPLAY WITH INITIAL DATA -------- -->
-  <div class="container main-content live px-4 py-5 my-3 justify-content-center">
-    <% if (locals.data && locals.loc && locals.name) { %>
-      <div class="row align-items-center p-5">
-        <h2 class="text-white main-text mb-3">The ISS is currently flying over <%= name %> at <%= Math.round(data.velocity) %> <%= data.units === "kilometers" ? "km" : "mi" %>/hr</h2>
-        <p class="lead text-white">Visibility: <%= data.visibility %></p>
-        <p class="lead text-white">Current coordinates: <%= data.latitude.toFixed(2) %>, <%= data.longitude.toFixed(2) %></p>
-        <p class="lead text-white">Current altitude: <%= data.altitude.toFixed(0) %> <%= data.units === "kilometers" ? "km" : "mi" %></p>
-        <p class="lead text-white">Current timezone: <%= loc.timezone_id %></p>
+  <div class="live d-flex">
+    <div class="container main-content d-none px-4 py-5 my-3 justify-content-center">
+      <% if (locals.data && locals.loc && locals.name) { %>
+        <div class="row align-items-center p-5">
+          <h2 class="text-white main-text mb-3">The ISS is currently flying over <%= name %> at <%= Math.round(data.velocity) %> <%= data.units === "kilometers" ? "km" : "mi" %>/hr</h2>
+          <p class="lead text-white">Visibility: <%= data.visibility %></p>
+          <p class="lead text-white">Current coordinates: <%= data.latitude.toFixed(2) %>, <%= data.longitude.toFixed(2) %></p>
+          <p class="lead text-white">Current altitude: <%= data.altitude.toFixed(0) %> <%= data.units === "kilometers" ? "km" : "mi" %></p>
+          <p class="lead text-white">Current timezone: <%= loc.timezone_id %></p>
+        </div>
+        <div class="container buttons-container">
+          <form action="/astronauts" method="GET">
+            <input type="submit" value="Astronauts" class="btn main-button btn-lg px-4">
+          </form>
+          <a href='/' class="btn main-button btn-lg px-4">Refresh</a>
+        </div>
+      <% } %>
+    </div>
+    <div class="display-toggle">
+      <div class="toggle-button">
+        <i class="toggle right"></i>
       </div>
-      <div class="container buttons-container">
-        <form action="/astronauts" method="GET">
-          <input type="submit" value="Astronauts" class="btn main-button btn-lg px-4">
-        </form>
-        <a href='/' class="btn main-button btn-lg px-4">Refresh</a>
-      </div>
-    <% } %>
+    </div>
   </div>
 </div>
 
