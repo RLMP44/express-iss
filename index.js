@@ -151,7 +151,8 @@ app.get('/astronauts', async (req, res) => {
 setInterval(async () => {
   const satelliteData = await getISSCoordinates();
   const countryName = await getCountryName({ lat: satelliteData.latitude, lon: satelliteData.longitude});
-  io.emit("issUpdate", satelliteData, countryName)
+  const timezone = locData.timezone_id;
+  io.emit("issUpdate", satelliteData, countryName, timezone)
 }, 1500);
 
 server.listen(port, () => {

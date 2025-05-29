@@ -8,16 +8,17 @@
 
   <!-- -------- ISS STATS DISPLAY WITH INITIAL DATA -------- -->
   <div class="live d-flex">
-    <div class="container main-content d-none px-4 py-5 my-3 justify-content-center">
+    <div class="container main-content d-none justify-content-center">
       <% if (locals.data && locals.loc && locals.name) { %>
-        <div class="row align-items-center p-5">
-          <h2 class="text-white main-text mb-3">The ISS is currently flying over <%= name %> at <%= Math.round(data.velocity) %> <%= data.units === "kilometers" ? "km" : "mi" %>/hr</h2>
-          <p class="lead text-white">Visibility: <%= data.visibility %></p>
-          <p class="lead text-white">Current coordinates: <%= data.latitude.toFixed(2) %>, <%= data.longitude.toFixed(2) %></p>
-          <p class="lead text-white">Current altitude: <%= data.altitude.toFixed(0) %> <%= data.units === "kilometers" ? "km" : "mi" %></p>
-          <p class="lead text-white">Current timezone: <%= loc.timezone_id %></p>
+        <div class="row align-items-center">
+          <h2 class="text-white main-text mb-3">The ISS is currently flying over <%= name %></h2>
+          <p class="lead adjustable text-white">Visibility: <%= data.visibility %></p>
+          <p class="lead adjustable text-white">Coordinates: <%= data.latitude.toFixed(2) %>, <%= data.longitude.toFixed(2) %></p>
+          <p class="lead collapsable text-white">Timezone: <%= loc.timezone_id %></p>
+          <p class="lead adjustable text-white">Velocity: <%= Math.round(data.velocity) %> <%= data.units === "kilometers" ? "km" : "mi" %>/hr</p>
+          <p class="lead adjustable text-white">Altitude: <%= data.altitude.toFixed(0) %> <%= data.units === "kilometers" ? "km" : "mi" %></p>
         </div>
-        <div class="container buttons-container">
+        <div class="container collapsable buttons-container">
           <form action="/astronauts" method="GET">
             <input type="submit" value="Astronauts" class="btn main-button btn-lg px-4">
           </form>
@@ -38,10 +39,12 @@
 <script>
   const socket = io();
 
-  socket.on("issUpdate", (data, countryName) => {
-    document.querySelector(".main-text").innerText = `The ISS is currently flying over ${countryName} at ${Math.round(data.velocity)} km/hr`;
+  socket.on("issUpdate", (data, countryName, timezone) => {
+    document.querySelector(".main-text").innerText = `The ISS is currently flying over ${countryName}`;
     document.querySelector(".lead:nth-of-type(1)").innerText = `Visibility: ${data.visibility}`;
-    document.querySelector(".lead:nth-of-type(2)").innerText = `Current coordinates: ${data.latitude.toFixed(2)}, ${data.longitude.toFixed(2)}`;
-    document.querySelector(".lead:nth-of-type(3)").innerText = `Current altitude: ${data.altitude.toFixed(0)} km`;
+    document.querySelector(".lead:nth-of-type(2)").innerText = `Coordinates: ${data.latitude.toFixed(2)}, ${data.longitude.toFixed(2)}`;
+    document.querySelector(".lead:nth-of-type(3)").innerText = `Timezone: ${timezone}`;
+    document.querySelector(".lead:nth-of-type(4)").innerText = `Velocity: ${Math.round(data.velocity)} km/hr`;
+    document.querySelector(".lead:nth-of-type(5)").innerText = `Altitude: ${data.altitude.toFixed(0)} km`;
   });
 </script>

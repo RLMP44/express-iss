@@ -69,6 +69,8 @@
   flex-direction: column;
   flex-wrap: nowrap;
   align-items: center;
+  padding: 3rem 1.5rem !important;
+  margin: 1rem 0rem !important;
 }
 
 .card-content {
@@ -94,8 +96,8 @@
   z-index: 1000;
   background: rgba(167, 231, 248, 1);
   border-radius: 0px 25px 25px 0px;
-  height: 100px;
-  width: 50px;
+  height: 85px;
+  width: 45px;
   display: grid;
   align-content: center;
   justify-content: space-evenly;
@@ -103,7 +105,11 @@
 }
 
 .display-toggle:hover {
-  width: 55px;
-  height: 105px;
-  transition: .5s ease-in-out;
+  width: 50px;
+  height: 90px;
+  transition: .3s ease-in-out;
+}
+
+.row {
+  padding: 3rem;
 }
