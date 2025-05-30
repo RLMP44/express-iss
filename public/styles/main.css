@@ -22,6 +22,18 @@ footer {
 
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
+  canvas {
+    border: 1px solid black;
+    background: radial-gradient(
+      circle 200vw at 50% 120%,
+      rgba(1,30,44,1) 25%,
+      48%,
+      rgba(167,231,248,1) 50%,
+      51%,
+      rgba(1,30,44,1) 67%
+    );
+  }
+
   .buttons-container {
     align-items: center;
     gap: 0.5rem;
@@ -42,19 +54,19 @@ footer {
   }
 
   .copyright {
-    grid-area: 2 / 1 / 2 / -1 !important;
+    grid-area: 2 / 1 / 2 / -1;
     justify-self: center;
     margin: 0;
   }
 
   .dedication {
-    grid-area: 1 / 1 / 1 / -1 !important;
+    grid-area: 1 / 1 / 1 / -1;
     margin: 0;
     justify-self: center;
   }
 
   header {
-    justify-content: space-between;
+    justify-content: center;
   }
 
   .collapsable, .buttons-container {
@@ -82,27 +94,6 @@ footer {
   }
 }
 
-@media only screen and (min-width: 200px) and (max-width: 400px) {
-  header {
-    justify-content: center;
-  }
-}
-
-/* Small devices (portrait tablets and large phones, 600px and up) */
-@media only screen and (min-width: 200px) and (max-width: 600px) {
-  canvas {
-    border: 1px solid black;
-    background: radial-gradient(
-      circle 200vw at 50% 120%,
-      rgba(1,30,44,1) 25%,
-      48%,
-      rgba(167,231,248,1) 50%,
-      51%,
-      rgba(1,30,44,1) 67%
-    );
-  }
-}
-
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 600.1px) and (max-width: 768px) {
   canvas {
@@ -118,11 +109,11 @@ footer {
   }
 
   .copyright {
-    grid-area: 1 / 1 / 1 / 3 !important;
+    grid-area: 1 / 1 / 1 / 3;
   }
 
   .dedication {
-    grid-area: 1 / 4 / 1 / -1 !important;
+    grid-area: 1 / 4 / 1 / -1;
   }
 
   header {
@@ -172,11 +163,11 @@ footer {
   }
 
   .copyright {
-    grid-area: 1 / 1 / 1 / 3 !important;
+    grid-area: 1 / 1 / 1 / 3;
   }
 
   .dedication {
-    grid-area: 1 / 4 / 1 / -1 !important;
+    grid-area: 1 / 4 / 1 / -1;
   }
 }
 
