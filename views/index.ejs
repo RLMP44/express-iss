@@ -12,17 +12,16 @@
       <% if (locals.data && locals.loc && locals.name) { %>
         <div class="row align-items-center">
           <h2 class="text-white main-text mb-3">The ISS is currently flying over <%= name %></h2>
-          <p class="lead adjustable text-white">Visibility: <%= data.visibility %></p>
-          <p class="lead adjustable text-white">Coordinates: <%= data.latitude.toFixed(2) %>, <%= data.longitude.toFixed(2) %></p>
+          <p class="lead collapsable text-white">Visibility: <%= data.visibility %></p>
+          <p class="lead text-white">Coordinates: <%= data.latitude.toFixed(2) %>, <%= data.longitude.toFixed(2) %></p>
           <p class="lead collapsable text-white">Timezone: <%= loc.timezone_id %></p>
-          <p class="lead adjustable text-white">Velocity: <%= Math.round(data.velocity) %> <%= data.units === "kilometers" ? "km" : "mi" %>/hr</p>
-          <p class="lead adjustable text-white">Altitude: <%= data.altitude.toFixed(0) %> <%= data.units === "kilometers" ? "km" : "mi" %></p>
+          <p class="lead text-white">Velocity: <%= Math.round(data.velocity) %> <%= data.units === "kilometers" ? "km" : "mi" %>/hr</p>
+          <p class="lead text-white">Altitude: <%= data.altitude.toFixed(0) %> <%= data.units === "kilometers" ? "km" : "mi" %></p>
         </div>
-        <div class="container collapsable buttons-container">
+        <div class="container buttons-container">
           <form action="/astronauts" method="GET">
-            <input type="submit" value="Astronauts" class="btn main-button btn-lg px-4">
+            <input type="submit" value="Astronauts" class="btn main-button px-4">
           </form>
-          <a href='/' class="btn main-button btn-lg px-4">Refresh</a>
         </div>
       <% } %>
     </div>

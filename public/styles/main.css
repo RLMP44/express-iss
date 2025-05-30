@@ -41,10 +41,6 @@ footer {
     background-size: 200vw 100vh;
   }
 
-  .main-text {
-    font-size: 24px;
-  }
-
   .copyright {
     grid-area: 2 / 1 / 2 / -1 !important;
     justify-self: center;
@@ -61,7 +57,7 @@ footer {
     justify-content: space-between;
   }
 
-  .collapsable {
+  .collapsable, .buttons-container {
     display: none !important;
   }
 
@@ -75,7 +71,7 @@ footer {
   }
 
   .row {
-    padding: .3rem 1rem !important;
+    padding: 1rem !important;
     display: unset !important;
   }
 
@@ -108,7 +104,7 @@ footer {
 }
 
 /* Medium devices (landscape tablets, 768px and up) */
-@media only screen and (min-width: 600px) and (max-width: 768px) {
+@media only screen and (min-width: 600.1px) and (max-width: 768px) {
   canvas {
     border: 1px solid black;
     background: radial-gradient(
@@ -133,9 +129,13 @@ footer {
     justify-content: space-between;
   }
 
-  /* .collapsable {
+  .collapsable {
     display: none !important;
-  } */
+  }
+
+  .main-content {
+    padding: .5rem !important;
+  }
 
   .main-text {
     font-size: 1.2rem !important;
@@ -198,5 +198,56 @@ footer {
       51%,
       rgba(1,30,44,1) 67%
     );
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1049.9px) {
+  .main-content {
+    padding: .8rem !important;
+  }
+
+  .row {
+    padding: 1rem !important;
+  }
+
+  .main-text {
+    font-size: 1.2rem !important;
+  }
+
+  .lead {
+    font-size: 1rem !important;
+    margin-bottom: .3rem;
+  }
+
+  .live {
+    max-width: 20rem !important;
+  }
+}
+
+@media only screen and (min-width: 1050px) and (max-width: 1300px) {
+  .main-content {
+    padding: 1rem !important;
+  }
+
+  .row {
+    padding: 2rem !important;
+  }
+
+  .main-text {
+    font-size: 1.6rem !important;
+  }
+
+  .lead {
+    margin-bottom: .4rem;
+  }
+
+  .live {
+    max-width: 25rem;
+  }
+}
+
+@media only screen and (min-width: 1050px) {
+  .main-button {
+    font-size: 1.2rem !important;
   }
 }
