@@ -61,7 +61,7 @@
   border-radius: 2rem;
   background-color: rgba(13, 26, 42, 0.325);
   backdrop-filter: blur(5px);
-  width: 500px !important;
+  width: 450px !important;
   height: max-content;
   border: .3rem solid rgba(167, 231, 248, 1);
   box-shadow: 3px 3px 7px rgba(1, 30, 44, 1);

@@ -43,7 +43,7 @@ footer {
     width: 90% !important;
   }
 
-  .main-content {
+  .adjustable-main-content {
     width: auto !important;
     padding: 0rem !important;
     margin: 0rem !important;
@@ -73,7 +73,7 @@ footer {
     display: none !important;
   }
 
-  .main-text {
+  .stats-title {
     font-size: 1.2rem !important;
   }
 
@@ -124,11 +124,11 @@ footer {
     display: none !important;
   }
 
-  .main-content {
+  .adjustable-main-content {
     padding: .5rem !important;
   }
 
-  .main-text {
+  .stats-title {
     font-size: 1.2rem !important;
   }
 
@@ -173,9 +173,7 @@ footer {
 
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (min-width: 992px) {
-  .main-content {
-    width: 450px !important;
-  }
+
 }
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
@@ -193,7 +191,7 @@ footer {
 }
 
 @media only screen and (min-width: 768px) and (max-width: 1049.9px) {
-  .main-content {
+  .adjustable-main-content {
     padding: .8rem !important;
   }
 
@@ -201,7 +199,7 @@ footer {
     padding: 1rem !important;
   }
 
-  .main-text {
+  .stats-title {
     font-size: 1.2rem !important;
   }
 
@@ -216,7 +214,7 @@ footer {
 }
 
 @media only screen and (min-width: 1050px) and (max-width: 1300px) {
-  .main-content {
+  .adjustable-main-content {
     padding: 1rem !important;
   }
 
@@ -224,7 +222,7 @@ footer {
     padding: 2rem !important;
   }
 
-  .main-text {
+  .stats-title {
     font-size: 1.6rem !important;
   }
 

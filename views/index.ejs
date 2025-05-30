@@ -8,10 +8,10 @@
 
   <!-- -------- ISS STATS DISPLAY WITH INITIAL DATA -------- -->
   <div class="live d-flex">
-    <div class="container main-content d-none justify-content-center">
+    <div class="container main-content adjustable-main-content d-none justify-content-center">
       <% if (locals.data && locals.loc && locals.name) { %>
         <div class="row align-items-center">
-          <h2 class="text-white main-text mb-3">The ISS is currently flying over <%= name %></h2>
+          <h2 class="text-white main-text stats-title mb-3">The ISS is currently flying over <%= name %></h2>
           <p class="lead collapsable text-white">Visibility: <%= data.visibility %></p>
           <p class="lead text-white">Coordinates: <%= data.latitude.toFixed(2) %>, <%= data.longitude.toFixed(2) %></p>
           <p class="lead collapsable text-white">Timezone: <%= loc.timezone_id %></p>
