@@ -4,7 +4,6 @@ import path from 'path';
 import { dirname } from "path";
 import { fileURLToPath } from "url";
 import bodyParser from "body-parser";
-// import countryCodes from "./data/country_codes.json" assert { type: "json" };
 import expressLayouts from "express-ejs-layouts";
 import fs from "fs";
 import schedule from "node-schedule";
@@ -35,7 +34,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 // display ISS location as country name or generalized 'ocean'
 function handleLocData(code) {
   const country = countryCodes.codes.find((c) => c.Code === code);
-  return (country && country.Code !== "??") ? country.Name : "the ocean";
+  return (country && country.Code !== "??") ? handleCountryName(country.Name) : "the ocean";
+}
+
+// fix the order of countries with commas listed in name
+function handleCountryName(name) {
+  return (name.includes(',')) ? name.split(/,\s/).reverse().join(' ') : name
 }
 
 // scheduled job (daily): call API listing people in space & filter for ISS astronauts
