@@ -11,6 +11,7 @@
     <div class="container main-content adjustable-main-content d-none justify-content-center">
       <% if (locals.data && locals.loc && locals.name) { %>
         <div class="row align-items-center">
+          <div id="issDataHolder" data-iss='<%= JSON.stringify(data) %>'></div>
           <h2 class="text-white main-text stats-title mb-3">The ISS is currently flying over <%= name %></h2>
           <p class="lead collapsable text-white">Visibility: <%= data.visibility %></p>
           <p class="lead text-white">Coordinates: <%= data.latitude.toFixed(2) %>, <%= data.longitude.toFixed(2) %></p>

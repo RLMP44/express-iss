@@ -3,11 +3,12 @@ document.addEventListener("DOMContentLoaded", async function () {
     terrainProvider: await Cesium.createWorldTerrainAsync(),
   });
 
+  const initialISSData = JSON.parse(document.getElementById("issDataHolder").dataset.iss);
   var issPosition = {};
 
   // create a starting position for ISS
   const issEntity = viewer.entities.add({
-    position: Cesium.Cartesian3.fromDegrees(-103.0, 40.0),
+    position: Cesium.Cartesian3.fromDegrees(initialISSData.longitude, initialISSData.latitude, initialISSData.altitude * 1000),
     height: 250000,
     billboard: {
       image: "/images/ISS.png",
@@ -71,9 +72,8 @@ document.addEventListener("DOMContentLoaded", async function () {
     }
     issPosition = position;
 
-    // set iss entity position anc convert km to meters
+    // set iss entity position and convert km to meters
     issEntity.position = Cesium.Cartesian3.fromDegrees(position.longitude, position.latitude, position.altitude * 1000);
-    viewer.trackedEntity = issEntity;
   }
 
   function updateCamera() {
