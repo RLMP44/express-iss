@@ -24,7 +24,7 @@ $('.arrow-button').each(function() {
 $('.toggle-button').each(function() {
   $(this).on('click', function(event) {
     $('.live').toggleClass('mx-3');
-    $('.main-content').toggleClass('d-none');
+    $('.adjustable-main-content').toggleClass('d-none');
     $('.toggle').toggleClass('extra-left-margin');
     $('.toggle').toggleClass('left');
     $('.toggle').toggleClass('right');

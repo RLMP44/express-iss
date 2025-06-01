@@ -30,6 +30,9 @@
   top: 45%;
   transform: translateY(-50%);
   z-index: 1000;
+  max-width: 34vw;
+  max-height: 85vh;
+  min-height: fit-content;
 }
 
 .body-container {
@@ -57,20 +60,31 @@
   width: 90% !important;
 }
 
-.main-content {
+.main-content, .adjustable-main-content {
   border-radius: 2rem;
   background-color: rgba(13, 26, 42, 0.325);
   backdrop-filter: blur(5px);
-  width: 450px !important;
-  height: max-content;
   border: .3rem solid rgba(167, 231, 248, 1);
   box-shadow: 3px 3px 7px rgba(1, 30, 44, 1);
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
   align-items: center;
-  padding: 3rem 1.5rem !important;
   margin: 1rem 0rem !important;
+}
+
+.main-content {
+  width: 450px !important;
+  height: max-content;
+  padding: 3rem 1.5rem !important;
+}
+
+.adjustable-main-content {
+  max-width: 400px !important;
+}
+
+.stats-display {
+  padding: 2rem 2rem 1rem 2rem !important;
 }
 
 .card-content {

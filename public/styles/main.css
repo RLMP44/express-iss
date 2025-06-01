@@ -47,6 +47,7 @@ footer {
     width: auto !important;
     padding: 0rem !important;
     margin: 0rem !important;
+    max-width: unset;
   }
 
   body {
@@ -85,12 +86,14 @@ footer {
   .row {
     padding: 1rem !important;
     display: unset !important;
+    min-width: fit-content;
   }
 
   .live {
     margin: 0rem !important;
     top: 20%;
     transform: translateY(-50%);
+    max-width: 90vw;
   }
 }
 
@@ -146,6 +149,11 @@ footer {
     margin: 0rem !important;
     top: 20%;
     transform: translateY(-50%);
+    max-width: 90vw;
+  }
+
+  .main-button {
+    width: 8rem !important;
   }
 }
 
@@ -168,6 +176,10 @@ footer {
 
   .dedication {
     grid-area: 1 / 4 / 1 / -1;
+  }
+
+  .main-button {
+    width: 8rem !important;
   }
 }
 
@@ -207,10 +219,6 @@ footer {
     font-size: 1rem !important;
     margin-bottom: .3rem;
   }
-
-  .live {
-    max-width: 20rem !important;
-  }
 }
 
 @media only screen and (min-width: 1050px) and (max-width: 1300px) {
@@ -218,8 +226,8 @@ footer {
     padding: 1rem !important;
   }
 
-  .row {
-    padding: 2rem !important;
+  .stats-display {
+    padding: 2rem 2rem 1rem 2rem !important;
   }
 
   .stats-title {
@@ -229,14 +237,11 @@ footer {
   .lead {
     margin-bottom: .4rem;
   }
-
-  .live {
-    max-width: 25rem;
-  }
 }
 
 @media only screen and (min-width: 1050px) {
   .main-button {
     font-size: 1.2rem !important;
+    margin-bottom: 1rem;
   }
 }
