@@ -109,18 +109,18 @@
 .display-toggle {
   z-index: 1000;
   background: rgba(167, 231, 248, 1);
-  border-radius: 0px 25px 25px 0px;
+  border-radius: 0px 50px 50px 0px;
   height: 85px;
-  width: 45px;
+  width: 40px;
   display: grid;
   align-content: center;
-  justify-content: space-evenly;
+  justify-content: center;
   align-self: center;
 }
 
 .display-toggle:hover {
-  width: 50px;
-  height: 90px;
+  height: 88px;
+  width: 43px;
   transition: .3s ease-in-out;
 }
 

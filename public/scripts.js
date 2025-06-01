@@ -21,7 +21,7 @@ $('.arrow-button').each(function() {
 });
 
 // controls to toggle the ISS stats display
-$('.toggle-button').each(function() {
+$('.display-toggle').each(function() {
   $(this).on('click', function(event) {
     $('.live').toggleClass('mx-3');
     $('.adjustable-main-content').toggleClass('d-none');
